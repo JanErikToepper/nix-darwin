@@ -3,6 +3,7 @@
     ./daemons
     ./packages
     ./scripts
+    ./system
     ./user
   ];
 }

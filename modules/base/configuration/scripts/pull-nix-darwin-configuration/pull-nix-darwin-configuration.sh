@@ -1,7 +1,7 @@
 function main() {
-  git -C /etc/nix-darwin pull;
+  git -C /etc/nix-darwin pull --rebase;
 
-  drs;
+  darwin-rebuild-switch;
 }
 
 main
