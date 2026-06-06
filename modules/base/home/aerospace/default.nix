@@ -8,6 +8,10 @@
     };
 
     settings = {
+      config-version = 2;
+
+      persistent-workspaces = [ "1" "2" "3" ];
+
       workspace-to-monitor-force-assignment = {
         "1" = 1; 
         "2" = 2; 
@@ -22,11 +26,13 @@
       };
 
       mode.main.binding = {
-        alt-h = "focus left";  
-        alt-j = "focus down";  
-        alt-k = "focus up";  
-        alt-l = "focus right";  
+        ctrl-alt-h = "focus left";  
+        ctrl-alt-j = "focus down";  
+        ctrl-alt-k = "focus up";  
+        ctrl-alt-l = "focus right";  
       };
+
+      on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
       on-window-detected = [
         {

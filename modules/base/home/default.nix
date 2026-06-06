@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./aerospace
+    ./vim
     ./zsh
   ];  
 
