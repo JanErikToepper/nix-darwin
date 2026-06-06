@@ -1,5 +1,11 @@
 { ... }: {
   programs.zsh.shellAliases = {
-    drs = "sudo darwin-rebuild switch --flake /etc/nix-darwin#private";
+    drs = ''
+      cd /etc/nix-darwin;
+      git add --all .;
+      sudo darwin-rebuild switch --flake .#private;
+      cd -;
+    '';
+    config = "vim /etc/nix-darwin/modules";
   };
 }

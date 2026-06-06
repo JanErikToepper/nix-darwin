@@ -1,7 +1,11 @@
 { ... }: {
   imports = [ ./configuration ];
 
-  config.home-manager.users.toepper = {
-    imports = [ ./home ];
+  config = {
+    machine = "private";
+
+    home-manager.users.toepper = {
+      imports = [ ./home ];
+    };
   };
 }
