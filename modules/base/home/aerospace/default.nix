@@ -1,4 +1,4 @@
-{ ... }: let 
+{ pkgs, ... }: let 
   finder = "com.apple.finder";
   firefox = "org.nixos.firefox"; 
   iterm2 = "com.googlecode.iterm2";
@@ -19,55 +19,52 @@ in {
       workspace-to-monitor-force-assignment = {
         "1" = ["1" "4" "5"]; 
         "2" = ["2" "6"]; 
-        "3" = ["3" "7"]; 
+        "3" = ["3"]; 
       };
 
-      gaps.outer = {
-        left = 0;
-        bottom = 0;
-        top = 0;
-        right = 0;
+      gaps = {
+        inner = {
+          horizontal = 0; 
+          vertical = 0; 
+        };
+        outer = {
+          left = 0;
+          bottom = 0;
+          top = 40;
+          right = 0;
+        };
       };
 
       mode.main.binding = {
-        alt-1 = "workspace 1";
-        alt-2 = "workspace 2";
-        alt-3 = "workspace 3";
-        alt-4 = "workspace 4";
-        alt-5 = "workspace 5";
+        cmd-1 = "workspace 1";
+        cmd-2 = "workspace 2";
+        cmd-3 = "workspace 3";
+        cmd-4 = "workspace 4";
+        cmd-5 = "workspace 5";
+        cmd-6 = "workspace 6";
 
-        alt-h = "focus-monitor left";  
-        alt-j = "focus-monitor down";  
-        alt-k = "focus-monitor up";  
-        alt-l = "focus-monitor right";  
+        cmd-h = "focus --boundaries all-monitors-outer-frame left";  
+        cmd-j = "focus --boundaries all-monitors-outer-frame down";  
+        cmd-k = "focus --boundaries all-monitors-outer-frame up";  
+        cmd-l = "focus --boundaries all-monitors-outer-frame right";  
 
-        ctrl-alt-h = "move-workspace-to-monitor left";  
-        ctrl-alt-j = "move-workspace-to-monitor down";  
-        ctrl-alt-k = "move-workspace-to-monitor up";  
-        ctrl-alt-l = "move-workspace-to-monitor right";  
+        alt-cmd-h = "move-workspace-to-monitor left";  
+        alt-cmd-j = "move-workspace-to-monitor down";  
+        alt-cmd-k = "move-workspace-to-monitor up";  
+        alt-cmd-l = "move-workspace-to-monitor right";  
 
-        shift-alt-h = "focus left";
-        shift-alt-j = "focus down";
-        shift-alt-k = "focus up";
-        shift-alt-l = "focus right";
+        cmd-esc = "close";
 
-        shift-ctrl-alt-h = "move left";
-        shift-ctrl-alt-j = "move down";
-        shift-ctrl-alt-k = "move up";
-        shift-ctrl-alt-l = "move right";
+        cmd-space = "exec-and-forget pmset sleepnow";
 
-        alt-esc = "close";
+        cmd-comma = "volume down";
+        cmd-period = "volume up";
+        cmd-m = "volume mute-toggle";
 
-        alt-space = "exec-and-forget pmset sleepnow";
-
-        alt-comma = "volume down";
-        alt-period = "volume up";
-        alt-m = "volume mute-toggle";
-
-        alt-b = "exec-and-forget open -b ${firefox}";
-        alt-e = "exec-and-forget open -b ${finder}";
-        alt-s = "exec-and-forget screencapture -i";
-        alt-enter = "exec-and-forget open -b ${iterm2}";
+        cmd-b = "exec-and-forget open -b ${firefox}";
+        cmd-e = "exec-and-forget open -b ${finder}";
+        cmd-s = "exec-and-forget screencapture -i";
+        cmd-enter = "exec-and-forget open -b ${iterm2}";
       };
 
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
@@ -85,11 +82,11 @@ in {
         }
         {
           "if" .app-id = firefox;
-          run = "move-node-to-workspace --focus-follows-window 4";
+          run = "move-node-to-workspace --focus-follows-window 1";
         }
         {
           "if" .app-id = iterm2;
-          run = "move-node-to-workspace --focus-follows-window 5";
+          run = "move-node-to-workspace --focus-follows-window 4";
         }
       ];
 
@@ -99,7 +96,7 @@ in {
         "exec-and-forget open -b ${iterm2}"
       ];
 
-      exec-on-workspace-change = [ "sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE" ];
+      exec-on-workspace-change = [ "/bin/bash" "-c" "${pkgs.sketchybar}/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE" ];
     };
   };
 }

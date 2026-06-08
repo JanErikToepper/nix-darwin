@@ -56,6 +56,7 @@
         NSAutomaticWindowAnimationsEnabled = false;
         NSAutomaticQuoteSubstitutionEnabled = false;
         NSAutomaticPeriodSubstitutionEnabled = false;
+        _HIHideMenuBar = true;
       };
       loginwindow = {
         GuestEnabled = false; 
@@ -76,10 +77,18 @@
       SoftwareUpdate = {
         AutomaticallyInstallMacOSUpdates = true; 
       };
-      screensaver = {
-        askForPassword = true; 
-        askForPasswordDelay = 0; 
+      CustomUserPreferences = {
+        NSGlobalDomain = {
+          NSQuitAlwaysKeepsWindows = false;
+        };
       };
+      spaces.spans-displays = false;
     };
+    activationScripts.customDefaultWrites.text = ''
+      /usr/bin/pmset -a sleep 0
+      /usr/bin/sysadminctl -screenLock immediate -password
+
+      /System/Library/PrivateFrameworks/SystemAdminstration.framework/Resources/activateSettings -u
+    '';
   };
 }
