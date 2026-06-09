@@ -30,7 +30,7 @@ in {
         outer = {
           left = 0;
           bottom = 0;
-          top = 40;
+          top = 20;
           right = 0;
         };
       };

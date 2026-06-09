@@ -1,25 +1,34 @@
 { ... }: {
-  imports = [ ./plugins ];
+  home.file.".config/sketchybar/plugins/aerospace.sh" = {
+    source = ./plugins/aerospace.sh; 
+    executable = true;
+  };
+
+  home.file.".config/sketchybar/plugins/clock.sh" = {
+    source = ./plugins/clock.sh; 
+    executable = true;
+  };
 
   programs.sketchybar = {
     enable = true; 
-    service.enable = true;
+    service.enable = false;
     config = ''
       sketchybar --bar \
+        y_offset=10 \
         color=0x00000000 \
         border_color=0x00000000 \
-        height=40 \
+        height=40
 
       sketchybar --default \
-        padding_left=10 \
-        padding_right=10 \
-        label.color=0xFF000000 \
+        y_offset=2 \
+        label.color=0xFFFFFFFF \
+        label.align=center \
+        label.padding_left=12 \
+        label.padding_right=12 \
         background.drawing=on \
-        background.color=0xFFFFFFFF \
-        background.height=25 \
-        background.corner_radius=2 \
-        background.padding_left=10 \
-        background.padding_right=10 \
+        background.color=0x00000000 \
+        background.height=30 \
+        background.corner_radius=5
 
       sketchybar --add event aerospace_workspace_change
 
@@ -27,18 +36,20 @@
         sketchybar --add item space.$sid left \
           --subscribe space.$sid aerospace_workspace_change \
           --set space.$sid \
-          background.drawing=off \
-          label="$sid" \
-          click_script="aerospace workspace $sid" \
-          script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+            label="$sid" \
+            background.color=0xFFFFFFFF \
+            click_script="aerospace workspace $sid" \
+            script="$CONFIG_DIR/plugins/aerospace.sh $sid"
       done
       
       sketchybar --add bracket spaces '/space\..*/'
 
-      sketchybar --set spaces \
-        background.color=0xAAFFFFFF \
-        background.corner_radius=2 \
-        background.height=25
+      sketchybar --set spaces
+
+      sketchybar --add item clock right \
+           --set clock \
+              script="$CONFIG_DIR/plugins/clock.sh" \
+           --subscribe clock system_woke
 
       sketchybar --update
     '';

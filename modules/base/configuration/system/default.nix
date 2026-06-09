@@ -1,4 +1,6 @@
 { ... }: {
+  power.sleep.display = "never";
+  
   system = {
     primaryUser = "toepper";
     keyboard = {
@@ -85,7 +87,6 @@
       spaces.spans-displays = false;
     };
     activationScripts.customDefaultWrites.text = ''
-      /usr/bin/pmset -a sleep 0
       /usr/bin/sysadminctl -screenLock immediate -password
 
       /System/Library/PrivateFrameworks/SystemAdminstration.framework/Resources/activateSettings -u

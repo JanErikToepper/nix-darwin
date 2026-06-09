@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
+{ nixpkgs, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
-    vim
+    nerd-fonts.hack 
   ];
 }

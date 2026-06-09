@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
     ./core
-    ./packages
+    ./homebrew
   ];
 }

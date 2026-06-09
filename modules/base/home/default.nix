@@ -6,6 +6,7 @@
     ./ripgrep
     ./sketchybar
     ./vim
+    ./zoxide
     ./zsh
   ];  
 
@@ -14,7 +15,6 @@
     packages = with pkgs; [
       iterm2
       hurl
-      nerd-fonts.hack 
     ];
   };
 }
