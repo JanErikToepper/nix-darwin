@@ -1,55 +1,72 @@
-{ ... }: {
-  home.file.".config/sketchybar/plugins/aerospace.sh" = {
-    source = ./plugins/aerospace.sh; 
-    executable = true;
-  };
-
-  home.file.".config/sketchybar/plugins/clock.sh" = {
-    source = ./plugins/clock.sh; 
-    executable = true;
-  };
+{ pkgs, ... }: {
+  home.file = builtins.listToAttrs (map (plugin: {
+    name = ".config/sketchybar/plugins/${plugin}.sh"; 
+    value = {
+      source = ./plugins + "/${plugin}.sh"; 
+      executable = true;
+    };
+  }) [ "aerospace" "audio" "battery" "clock" ]);
 
   programs.sketchybar = {
     enable = true; 
-    service.enable = false;
+    service.errorLogFile = /Users/toepper/error.log;
     config = ''
+      function aerospace() {
+        /etc/profiles/per-user/toepper/bin/aerospace $@;
+      }
+
       sketchybar --bar \
-        y_offset=10 \
         color=0x00000000 \
         border_color=0x00000000 \
-        height=40
+        height=30 \
+        y_offset=5
 
       sketchybar --default \
-        y_offset=2 \
+        pading_left=10 \
+        padding_right=10 \
         label.color=0xFFFFFFFF \
         label.align=center \
-        label.padding_left=12 \
-        label.padding_right=12 \
+        label.padding_left=10 \
+        label.padding_right=10 \
         background.drawing=on \
-        background.color=0x00000000 \
-        background.height=30 \
-        background.corner_radius=5
+        background.color=0xFF222222 \
+        background.corner_radius=5 \
+        background.border_color=0xFF444444 \
+        background.border_width=1
 
       sketchybar --add event aerospace_workspace_change
 
-      for sid in $(aerospace list-workspaces --all); do
+      for ((sid=1;sid<=9;sid++)); do
         sketchybar --add item space.$sid left \
           --subscribe space.$sid aerospace_workspace_change \
           --set space.$sid \
             label="$sid" \
-            background.color=0xFFFFFFFF \
+            background.color=0xFFDDDDDD \
+            background.border_color=0xFFFFFFFF \
             click_script="aerospace workspace $sid" \
-            script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+            script="/Users/toepper/.config/sketchybar/plugins/aerospace.sh $sid"
       done
-      
-      sketchybar --add bracket spaces '/space\..*/'
-
-      sketchybar --set spaces
 
       sketchybar --add item clock right \
-           --set clock \
-              script="$CONFIG_DIR/plugins/clock.sh" \
-           --subscribe clock system_woke
+        --subscribe clock system_woke \
+        --set clock \
+        update_freq=60 \
+        script="/Users/toepper/.config/sketchybar/plugins/clock.sh"
+
+      sketchybar --default \
+        icon.padding_left=10
+
+      sketchybar --add item battery right \
+        --subscribe battery system_woke \
+        --set battery \
+        update_freq=60 \
+        script="/Users/toepper/.config/sketchybar/plugins/battery.sh"
+
+      sketchybar --add item audio right \
+        --subscribe audio volume_change \
+        --set audio \
+        icon.font="Hack Nerd Font:Regular:16.0" \
+        script="/Users/toepper/.config/sketchybar/plugins/audio.sh"
 
       sketchybar --update
     '';

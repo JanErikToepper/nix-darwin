@@ -92,7 +92,16 @@
         force = true; 
         settings = [
           {
+            name = "Bash"; 
+            url = "https://www.gnu.org/software/bash/manual/bash.html";
+          }
+          {
             name = "Docker"; 
+            url = "https://docs.docker.com/";
+          }
+          {
+            name = "Git"; 
+            url = "https://git-scm.com/docs";
           }
           {
             name = "Nix"; 

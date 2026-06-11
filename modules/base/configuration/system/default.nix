@@ -79,17 +79,11 @@
       SoftwareUpdate = {
         AutomaticallyInstallMacOSUpdates = true; 
       };
-      CustomUserPreferences = {
-        NSGlobalDomain = {
-          NSQuitAlwaysKeepsWindows = false;
-        };
-      };
       spaces.spans-displays = false;
+      screensaver = {
+        askForPassword = true; 
+        askForPasswordDelay = 0;
+      };
     };
-    activationScripts.customDefaultWrites.text = ''
-      /usr/bin/sysadminctl -screenLock immediate -password
-
-      /System/Library/PrivateFrameworks/SystemAdminstration.framework/Resources/activateSettings -u
-    '';
   };
 }

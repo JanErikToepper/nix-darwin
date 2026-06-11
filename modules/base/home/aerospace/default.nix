@@ -1,7 +1,8 @@
 { pkgs, ... }: let 
+  bitwarden = "com.bitwarden.desktop";
   finder = "com.apple.finder";
   firefox = "org.nixos.firefox"; 
-  iterm2 = "com.googlecode.iterm2";
+  kitty = "net.kovidgoyal.kitty";
 in {
   programs.aerospace = {
     enable = true;
@@ -14,12 +15,18 @@ in {
     settings = {
       config-version = 2;
 
-      persistent-workspaces = [ "1" "2" "3" ];
+      persistent-workspaces = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" ];
 
       workspace-to-monitor-force-assignment = {
-        "1" = ["1" "4" "5"]; 
-        "2" = ["2" "6"]; 
-        "3" = ["3"]; 
+        "1" = 1;
+        "2" = 2;
+        "3" = 3;
+        "4" = 1;
+        "5" = 1;
+        "6" = 2;
+        "7" = 3;
+        "8" = 3;
+        "9" = 2;
       };
 
       gaps = {
@@ -30,7 +37,7 @@ in {
         outer = {
           left = 0;
           bottom = 0;
-          top = 20;
+          top = 40;
           right = 0;
         };
       };
@@ -42,6 +49,19 @@ in {
         cmd-4 = "workspace 4";
         cmd-5 = "workspace 5";
         cmd-6 = "workspace 6";
+        cmd-7 = "workspace 7";
+        cmd-8 = "workspace 8";
+        cmd-9 = "workspace 9";
+
+        alt-cmd-1 = "move-node-to-workspace 1";
+        alt-cmd-2 = "move-node-to-workspace 2";
+        alt-cmd-3 = "move-node-to-workspace 3";
+        alt-cmd-4 = "move-node-to-workspace 4";
+        alt-cmd-5 = "move-node-to-workspace 5";
+        alt-cmd-6 = "move-node-to-workspace 6";
+        alt-cmd-7 = "move-node-to-workspace 7";
+        alt-cmd-8 = "move-node-to-workspace 8";
+        alt-cmd-9 = "move-node-to-workspace 9";
 
         cmd-h = "focus --boundaries all-monitors-outer-frame left";  
         cmd-j = "focus --boundaries all-monitors-outer-frame down";  
@@ -61,10 +81,11 @@ in {
         cmd-period = "volume up";
         cmd-m = "volume mute-toggle";
 
-        cmd-b = "exec-and-forget open -b ${firefox}";
+        cmd-b = "exec-and-forget open -nb ${firefox}";
         cmd-e = "exec-and-forget open -b ${finder}";
-        cmd-s = "exec-and-forget screencapture -i";
-        cmd-enter = "exec-and-forget open -b ${iterm2}";
+        cmd-p = "exec-and-forget open -b ${bitwarden}";
+        cmd-s = "exec-and-forget screencapture -i -c";
+        cmd-enter = "exec-and-forget open -nb ${kitty}";
       };
 
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
@@ -76,16 +97,20 @@ in {
           run = "move-node-to-workspace 1";
         }
         {
-          "if".app-id = iterm2;
+          "if".app-id = kitty;
           "if".during-aerospace-startup = true;
           run = "move-node-to-workspace 2";
+        }
+        {
+          "if".app-id = bitwarden;
+          run = "move-node-to-workspace --focus-follows-window 7";
         }
         {
           "if" .app-id = firefox;
           run = "move-node-to-workspace --focus-follows-window 1";
         }
         {
-          "if" .app-id = iterm2;
+          "if" .app-id = kitty;
           run = "move-node-to-workspace --focus-follows-window 4";
         }
       ];
@@ -93,7 +118,7 @@ in {
       after-startup-command = [
         "exec-and-forget sketchybar"
         "exec-and-forget open -b ${firefox}"
-        "exec-and-forget open -b ${iterm2}"
+        "exec-and-forget open -b ${kitty}"
       ];
 
       exec-on-workspace-change = [ "/bin/bash" "-c" "${pkgs.sketchybar}/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE" ];

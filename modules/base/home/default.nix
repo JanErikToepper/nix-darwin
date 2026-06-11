@@ -3,8 +3,11 @@
     ./aerospace
     ./fd
     ./firefox
+    ./git
+    ./kitty
     ./ripgrep
     ./sketchybar
+    ./tmux
     ./vim
     ./zoxide
     ./zsh
@@ -13,8 +16,9 @@
   home = {
     username = "toepper";
     packages = with pkgs; [
-      iterm2
       hurl
+      nerd-fonts.hack
+      tmuxifier
     ];
   };
 }
