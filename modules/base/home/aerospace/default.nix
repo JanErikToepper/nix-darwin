@@ -7,8 +7,6 @@ in {
   programs.aerospace = {
     enable = true;
 
-    package = pkgs.aerospace;
-
     launchd = {
       enable = true;
       keepAlive = true;
@@ -55,15 +53,15 @@ in {
         cmd-8 = "workspace 8";
         cmd-9 = "workspace 9";
 
-        alt-cmd-1 = [ "move-node-to-workspace 1" "workspace 1"];
-        alt-cmd-2 = [ "move-node-to-workspace 2" "workspace 2"];
-        alt-cmd-3 = [ "move-node-to-workspace 3" "workspace 3"];
-        alt-cmd-4 = [ "move-node-to-workspace 4" "workspace 4"];
-        alt-cmd-5 = [ "move-node-to-workspace 5" "workspace 5"];
-        alt-cmd-6 = [ "move-node-to-workspace 6" "workspace 6"];
-        alt-cmd-7 = [ "move-node-to-workspace 7" "workspace 7"];
-        alt-cmd-8 = [ "move-node-to-workspace 8" "workspace 8"];
-        alt-cmd-9 = [ "move-node-to-workspace 9" "workspace 9"];
+        alt-cmd-1 = [ "move-node-to-workspace --focus-follows-window 1"];
+        alt-cmd-2 = [ "move-node-to-workspace --focus-follows-window 2"];
+        alt-cmd-3 = [ "move-node-to-workspace --focus-follows-window 3"];
+        alt-cmd-4 = [ "move-node-to-workspace --focus-follows-window 4"];
+        alt-cmd-5 = [ "move-node-to-workspace --focus-follows-window 5"];
+        alt-cmd-6 = [ "move-node-to-workspace --focus-follows-window 6"];
+        alt-cmd-7 = [ "move-node-to-workspace --focus-follows-window 7"];
+        alt-cmd-8 = [ "move-node-to-workspace --focus-follows-window 8"];
+        alt-cmd-9 = [ "move-node-to-workspace --focus-follows-window 9"];
 
         cmd-h = "focus --boundaries all-monitors-outer-frame left";  
         cmd-j = "focus --boundaries all-monitors-outer-frame down";  
@@ -94,16 +92,6 @@ in {
 
       on-window-detected = [
         {
-          "if".app-id = firefox;
-          "if".during-aerospace-startup = true;
-          run = "move-node-to-workspace 1";
-        }
-        {
-          "if".app-id = kitty;
-          "if".during-aerospace-startup = true;
-          run = "move-node-to-workspace 2";
-        }
-        {
           "if".app-id = bitwarden;
           run = "move-node-to-workspace --focus-follows-window 7";
         }
@@ -113,14 +101,14 @@ in {
         }
         {
           "if" .app-id = kitty;
-          run = "move-node-to-workspace --focus-follows-window 4";
+          run = "move-node-to-workspace --focus-follows-window 2";
         }
       ];
 
       after-startup-command = [
         "exec-and-forget sketchybar"
-        "exec-and-forget open -nb ${firefox}"
-        "exec-and-forget open -nb ${kitty}"
+        "exec-and-forget open -b ${firefox}"
+        "exec-and-forget open -b ${kitty}"
       ];
 
       exec-on-workspace-change = [ "${pkgs.bash}/bin/bash" "-c" "${pkgs.sketchybar}/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE" ];

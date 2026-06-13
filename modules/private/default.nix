@@ -6,6 +6,8 @@
 
     home-manager.users.toepper = {
       imports = [ ./home ];
+
+      config.machine = "private";
     };
   };
 }

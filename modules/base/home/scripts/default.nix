@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, ... }: {
   imports = [
     ./darwin-rebuild-switch
     ./kill-all-aerospace-windows
@@ -6,10 +6,10 @@
     ./push-nix-darwin-configuration-and-shutdown
   ];
 
-  environment.systemPackages = with pkgs; [
+  home.packages = with config.customScripts; [
     darwin-rebuild-switch
     kill-all-aerospace-windows
     pull-nix-darwin-configuration
-    push-nix-darwin-configuration-and-shutdown
+    push-nix-darwin-configuration-and-shutdown 
   ];
 }

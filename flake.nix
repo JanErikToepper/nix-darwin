@@ -11,9 +11,10 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05"; 
   };
 
-  outputs = { nix-darwin, home-manager, ... } @ inputs: {
+  outputs = { nix-darwin, home-manager, nixvim, ... }: {
     darwinConfigurations = builtins.listToAttrs (map (module: {
       name = module;
       value = nix-darwin.lib.darwinSystem {
@@ -24,6 +25,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
+              extraSpecialArgs = { inherit nixvim ;};
             };
           }
         ];

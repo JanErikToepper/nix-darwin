@@ -3,9 +3,9 @@
     enable = true;
     autocd = true;
     shellAliases = {
-      configure = "vim /etc/nix-darwin/modules";
+      configure = "cd /etc/nix-darwin/modules; nvim .";
       drs = "sudo darwin-rebuild-switch";
-      reboot = "sudo kill-all-aerospace-windows && reboot";
+      reboot = "sudo kill-all-aerospace-windows && sudo reboot";
       shutdown = "sudo push-nix-darwin-configuration-and-shutdown";
       tx = "tmuxifier";
     };

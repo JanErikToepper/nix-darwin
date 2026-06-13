@@ -8,6 +8,7 @@
       ".env"
       ".envrc"
       ".hurl/"
+      "build/"
       "dist/"
       "node_modules/"
     ]; 

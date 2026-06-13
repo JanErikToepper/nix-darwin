@@ -1,0 +1,16 @@
+{ ... }: {
+  editorconfig = {
+    enable = true; 
+    settings = {
+      "*" = {
+        charset = "utf-8"; 
+        end_of_line = "lf";
+        indent_size = 2;
+        indent_style = "space";
+        insert_final_newline = false;
+        max_line_length = "120";
+        tab_width = 2;
+      };
+    };
+  };
+}

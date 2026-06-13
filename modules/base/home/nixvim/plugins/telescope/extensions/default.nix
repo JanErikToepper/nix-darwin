@@ -1,0 +1,3 @@
+{ ... }: {
+  imports = [ ./advanced-git-search ];
+}

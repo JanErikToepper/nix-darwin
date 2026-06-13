@@ -1,11 +1,14 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./aerospace
     ./fd
     ./firefox
     ./git
     ./kitty
+    ./launchd
+    ./nixvim
     ./ripgrep
+    ./scripts
     ./sketchybar
     ./tmux
     ./vim
@@ -16,14 +19,10 @@
   home = {
     username = "toepper";
     packages = with pkgs; [
-      (pkgs.writeShellApplication {
-        name = "test-kill-all-aerospace-windows";
-        runtimeInputs = with pkgs; [ aerospace ];
-        text = builtins.readFile ../configuration/scripts/kill-all-aerospace-windows/kill-all-aerospace-windows.sh;
-      })
-      hurl
       nerd-fonts.hack
       tmuxifier
+      prettierd
+      hurl
     ];
   };
 }
