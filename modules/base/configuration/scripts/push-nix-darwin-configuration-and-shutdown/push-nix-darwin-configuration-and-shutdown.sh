@@ -9,8 +9,6 @@ function main() {
     git -C /etc/nix-darwin push;
   fi
 
-  kill-all-aerospace-windows;
-
   shutdown -h now;
 }
 
