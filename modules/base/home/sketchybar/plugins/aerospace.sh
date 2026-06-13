@@ -1,15 +1,37 @@
 #!/usr/bin/env bash
 
+source "$CONFIG_DIR/plugins/colors.sh";
+
+export PATH=/run/current-system/sw/bin:$PATH;
+
 function main() {
-  if [[ "$1" = "$FOCUSED_WORKSPACE" ]]; then
-    sketchybar --set space.$1 \
-      background.drawing=on \
-      label.color=0xFF000000
+  local current_workspace="$1";
+
+  local active_workspaces;
+  active_workspaces="$(aerospace list-workspaces --all)";
+
+  if [[ ! "$active_workspaces" =~ "$current_workspace" ]]; then
+    sketchybar --set space.$current_workspace \
+      drawing=off
+
+    return;
+  fi
+
+  local focused_workspace="$FOCUSED_WORKSPACE";
+
+  if [[ "$current_workspace" == "$focused_workspace" ]]; then
+    sketchybar --set space.$current_workspace \
+      drawing=on \
+      label.color=$FOCUSED_COLOR \
+      background.color=$FOCUSED_BACKGROUND_COLOR \
+      background.border_color=$FOCUSED_BACKGROUND_BORDER_COLOR
   else
-    sketchybar --set space.$1 \
-      background.drawing=off \
-      label.color=0xFFFFFFFF
+    sketchybar --set space.$current_workspace \
+      drawing=on \
+      label.color=$DEFAULT_COLOR \
+      background.color=$DEFAULT_BACKGROUND_COLOR \
+      background.border_color=$DEFAULT_BACKGROUND_BORDER_COLOR
   fi
 }
 
-main "$1";
+main "$(cut -d. -f2 <<< "$NAME")";

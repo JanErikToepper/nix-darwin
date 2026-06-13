@@ -1,5 +1,11 @@
 { ... }: {
-  nix.settings.experimental-features = "nix-command flakes";
+  nix = {
+    gc = {
+      interval.Weekday = 1; 
+      automatic = true;
+    };
+    settings.experimental-features = "nix-command flakes";
+  };
 
   nixpkgs = {
     config.allowUnfree = true;
