@@ -1,8 +1,4 @@
-{ config, lib, pkgs, ... }: {
-  options.customScripts.darwin-rebuild-switch = lib.mkOption {
-    type = lib.types.package; 
-  };
-
+{ config, pkgs, ... }: {
   config.customScripts.darwin-rebuild-switch = pkgs.writeShellApplication {
     name = "darwin-rebuild-switch";
     runtimeEnv = {

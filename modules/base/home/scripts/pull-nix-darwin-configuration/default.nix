@@ -1,8 +1,4 @@
-{ config, lib, pkgs, ... }: {
-  options.customScripts.pull-nix-darwin-configuration = lib.mkOption {
-    type = lib.types.package; 
-  };
-
+{ config, pkgs, ... }: {
   config.customScripts.pull-nix-darwin-configuration = pkgs.writeShellApplication {
     name = "pull-nix-darwin-configuration";
     runtimeInputs = with config.customScripts; [ darwin-rebuild-switch ];

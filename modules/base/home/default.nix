@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./aerospace
     ./fd
@@ -19,6 +19,7 @@
   home = {
     username = "toepper";
     packages = with pkgs; [
+      desktoppr
       nerd-fonts.hack
       tmuxifier
       prettierd

@@ -1,8 +1,4 @@
-{ config, lib, pkgs, ... }: {
-  options.customScripts.kill-all-aerospace-windows = lib.mkOption {
-    type = lib.types.package; 
-  };
-
+{ config, pkgs, ... }: {
   config.customScripts.kill-all-aerospace-windows = pkgs.writeShellApplication {
     name = "kill-all-aerospace-windows";  
     runtimeInputs = [ pkgs.aerospace ];

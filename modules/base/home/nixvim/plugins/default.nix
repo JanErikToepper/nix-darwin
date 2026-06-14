@@ -4,6 +4,7 @@
     ./cmp
     ./diffview
     ./gitsigns
+    ./harpoon
     ./markview
     ./neogit
     ./none-ls
@@ -16,6 +17,7 @@
 
   programs.nixvim.plugins = {
     autoclose.enable = true; 
+    jdtls.enable = true;
     lspconfig.enable = true;
     tmux-navigator.enable = true;
     ts-autotag.enable = true;

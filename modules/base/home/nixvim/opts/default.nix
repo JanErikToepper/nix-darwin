@@ -26,7 +26,6 @@
     sidescrolloff = 10;
     signcolumn = "yes";
     smartcase = true;
-    smartindent = true;
     softtabstop = -1;
     splitbelow = true;
     splitright = true;
