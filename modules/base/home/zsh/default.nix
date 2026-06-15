@@ -6,7 +6,7 @@
       configure = "cd /etc/nix-darwin/modules; nvim .";
       drs = "sudo darwin-rebuild-switch";
       reboot = "sudo kill-all-aerospace-windows && sudo reboot";
-      shutdown = "sudo push-nix-darwin-configuration-and-shutdown";
+      shutdown = "push-nix-darwin-configuration && sudo patched-shutdown";
       tx = "tmuxifier";
     };
     initContent = ''

@@ -8,10 +8,6 @@ function main() {
     git -C /etc/nix-darwin commit -m "[$MACHINE] $timestamp";
     git -C /etc/nix-darwin push;
   fi
-
-  kill-all-aerospace-windows;
-
-  shutdown -h now;
 }
 
-main
+main;

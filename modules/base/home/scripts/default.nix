@@ -1,7 +1,10 @@
 { lib, config, ... }: {
   imports = [
     ./kill-all-aerospace-windows
-    ./push-nix-darwin-configuration-and-shutdown
+    ./patched-shutdown
+    ./pull-nix-darwin-configuration
+    ./push-nix-darwin-configuration
+    ./trigger-drs-watch
   ];
 
   options.customScripts = lib.mkOption {
@@ -10,6 +13,9 @@
 
   config.home.packages = with config.customScripts; [
     kill-all-aerospace-windows
-    push-nix-darwin-configuration-and-shutdown 
+    patched-shutdown
+    pull-nix-darwin-configuration
+    push-nix-darwin-configuration
+    trigger-drs-watch
   ];
 }

@@ -1,7 +1,7 @@
 { config, lib, ... }: {
   imports = [
     ./darwin-rebuild-switch
-    ./pull-nix-darwin-configuration
+    ./watch-drs-watch
   ];
 
   options.customScripts = lib.mkOption {
@@ -10,6 +10,6 @@
 
   config.environment.systemPackages = with config.customScripts; [
     darwin-rebuild-switch
-    pull-nix-darwin-configuration
+    watch-drs-watch
   ];
 }
