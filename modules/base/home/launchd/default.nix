@@ -2,7 +2,7 @@
   launchd = {
     enable = true;
     agents = {
-      bg = {
+      set-background = {
         enable = true;
         config = {
           Label = "toepper.set-background";
@@ -13,7 +13,7 @@
           RunAtLoad = true;
         };
       };
-      pull-and-trigger = {
+      pull-nix-darwin-configuration = {
         enable = true;
         config = {
           Label = "toepper.pull-nix-darwin-configuration";
