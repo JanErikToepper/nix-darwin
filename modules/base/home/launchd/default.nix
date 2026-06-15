@@ -5,7 +5,7 @@
       bg = {
         enable = true;
         config = {
-          Label = "toepper.bg";
+          Label = "toepper.set-background";
           ProgramArguments = [
             "${pkgs.desktoppr}/bin/desktoppr"
             "/etc/nix-darwin/modules/base/assets/black-background.avif"
@@ -16,8 +16,8 @@
       pull-and-trigger = {
         enable = true;
         config = {
-          Label = "toepper.pull-and-trigger";
-          ProgramsArguments = [
+          Label = "toepper.pull-nix-darwin-configuration";
+          ProgramArguments = [
             "${config.customScripts.pull-nix-darwin-configuration}/bin/pull-nix-darwin-configuration"
           ];
           RunAtLoad = true;
