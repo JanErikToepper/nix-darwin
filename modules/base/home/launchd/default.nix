@@ -11,6 +11,7 @@
             "/etc/nix-darwin/modules/base/assets/black-background.avif"
           ];
           RunAtLoad = true;
+          UserName = config.user;
         };
       };
       pull-nix-darwin-configuration = {
@@ -21,6 +22,7 @@
             "${config.customScripts.pull-nix-darwin-configuration}/bin/pull-nix-darwin-configuration"
           ];
           RunAtLoad = true;
+          UserName = config.user;
         };
       };
     };
