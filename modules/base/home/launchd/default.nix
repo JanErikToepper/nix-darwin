@@ -18,7 +18,7 @@
         config = {
           Label = "toepper.pull-and-trigger";
           ProgramsArguments = [
-            "${config.customScripts.pull-nix-darwin-configuration}/bin/pull-nix-darwin-configuration && ${config.customScripts.trigger-drs-watch}/bin/trigger-drs-watch"
+            "${config.customScripts.pull-nix-darwin-configuration}/bin/pull-nix-darwin-configuration"
           ];
           RunAtLoad = true;
         };
