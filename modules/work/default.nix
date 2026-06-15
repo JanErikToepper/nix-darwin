@@ -1,7 +1,7 @@
-{ ... }: let
+{ config, ... }: let
   customConfig = {
-    user = "toepper";
-    machine = "private";
+    user = "janeriktoepper";
+    machine = "work";
   };
 in {
   imports = [ ./configuration ];
@@ -9,7 +9,7 @@ in {
   config = {
     inherit (customConfig) user machine;
 
-    home-manager.users.toepper = {
+    home-manager.users.${config.user} = {
       imports = [ ./home ];
 
       config = customConfig;

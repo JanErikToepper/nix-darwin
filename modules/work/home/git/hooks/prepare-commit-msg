@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+IS_AMEND_COMMAND=$(ps -ocommand= -p $PPID | grep -e '--amend');
+
+if [[ -n "$IS_AMEND_COMMAND" ]]; then
+  exit 0;
+fi
+
+branch=$(git rev-parse --abbrev-ref HEAD)
+
+[[ "$branch" =~ ^([a-z]+)/([A-Z]+-[0-9]+)-([a-zA-Z0-9-]+) ]]
+
+classification="${BASH_REMATCH[1]}"
+ticket_id="${BASH_REMATCH[2]}"
+commit_message=$(echo "${BASH_REMATCH[3]}" | tr '-' ' ');
+
+if [[ -z "$classification" || -z "$ticket_id" ]]; then
+  exit 0;
+fi
+
+declare classification_abbreviation
+
+case "$classification" in
+  "feature")
+    classification_abbreviation="F"
+    ;;
+  "bugfix")
+    classification_abbreviation="B"
+    ;;
+  *)
+    classification_abbreviation="C"
+esac
+
+echo "[$classification_abbreviation] $ticket_id: $commit_message" > "$COMMIT_MSG_FILE"

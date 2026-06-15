@@ -152,6 +152,10 @@
             url = "https://pnpm.io/motivation/";
           }
           {
+            name = "RabbitMQ";
+            url = "https://www.rabbitmq.com/docs/";
+          }
+          {
             name = "React"; 
             url = "https://react.dev/";
           }

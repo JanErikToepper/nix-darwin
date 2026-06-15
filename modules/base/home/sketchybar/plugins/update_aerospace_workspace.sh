@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export PATH=/run/current-system/sw/bin:$PATH;
+
 function main() {
   local current_workspace="$1";
 

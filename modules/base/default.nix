@@ -1,15 +1,20 @@
-{ lib, ... }: {
-  imports = [ ./configuration ];
-
-  options.machine = lib.mkOption {
-    type = lib.types.enum [ "private" "work" ]; 
-  };
-
-  config.home-manager.users.toepper = {
-    imports = [ ./home ];
-
-    options.machine = lib.mkOption {
+{ config, lib, ... }: let
+  customOptions = {
+    user = lib.mkOption {
+      type = lib.types.str;  
+    };
+    machine = lib.mkOption {
       type = lib.types.enum [ "private" "work" ]; 
     };
+  };
+in {
+  imports = [ ./configuration ];
+
+  options = customOptions;
+
+  config.home-manager.users.${config.user} = {
+    imports = [ ./home ];
+
+    options = customOptions;
   };
 }

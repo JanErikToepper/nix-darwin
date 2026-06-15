@@ -40,4 +40,6 @@
       bind-key x kill-pane
     '';
   };  
+
+  home.file.".tmux-layouts/.ignore".text = "";
 }

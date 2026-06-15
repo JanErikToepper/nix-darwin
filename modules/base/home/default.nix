@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, ... }: {
   imports = [
     ./aerospace
     ./fd
@@ -7,23 +7,16 @@
     ./kitty
     ./launchd
     ./nixvim
+    ./packages
     ./ripgrep
     ./scripts
     ./sketchybar
+    ./system
     ./tmux
     ./vim
     ./zoxide
     ./zsh
   ];  
 
-  home = {
-    username = "toepper";
-    packages = with pkgs; [
-      desktoppr
-      nerd-fonts.hack
-      tmuxifier
-      prettierd
-      hurl
-    ];
-  };
+  home.username = config.user;
 }

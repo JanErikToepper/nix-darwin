@@ -3,7 +3,7 @@
 in {
   programs.aerospace.settings = {
     mode.main.binding = {
-      cmd-g = "exec-and-forget open -b ${steam}";
+      ctrl-cmd-g = "exec-and-forget open -b ${steam}";
     };
 
     on-window-detected = [

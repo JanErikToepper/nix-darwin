@@ -212,7 +212,7 @@ in {
       {
         mode = "n"; 
         key = "<leader>mt";
-        action = "Markview splitToggle<cr>";
+        action = "<cmd>Markview splitToggle<cr>";
       }
       {
         mode = "n";

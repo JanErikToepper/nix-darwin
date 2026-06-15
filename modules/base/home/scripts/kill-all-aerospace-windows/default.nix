@@ -3,7 +3,7 @@
     name = "kill-all-aerospace-windows";  
     runtimeInputs = [ pkgs.aerospace ];
     runtimeEnv = {
-      USER = config.home.username; 
+      USER = config.user; 
     };
     text = builtins.readFile ./kill-all-aerospace-windows.sh;
   };

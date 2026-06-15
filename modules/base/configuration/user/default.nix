@@ -1,3 +1,3 @@
-{ pkgs, ... }: {
-  users.users.toepper.home = /Users/toepper;
+{ config, pkgs, ... }: {
+  users.users.${config.user}.home = /Users + "/${config.user}";
 }

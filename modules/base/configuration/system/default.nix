@@ -1,8 +1,8 @@
-{ ... }: {
+{ config, ... }: {
   power.sleep.display = "never";
   
   system = {
-    primaryUser = "toepper";
+    primaryUser = config.user;
     keyboard = {
       enableKeyMapping = true;
       remapCapsLockToControl = true;
@@ -84,6 +84,7 @@
         askForPassword = true; 
         askForPasswordDelay = 0;
       };
+      WindowManager.StandardHideWidgets = true;
     };
   };
 }

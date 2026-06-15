@@ -19,12 +19,21 @@ function main() {
 
   local focused_workspace="$FOCUSED_WORKSPACE";
 
+  local visible_workspaces;
+  visible_workspaces="$(aerospace list-workspaces --monitor all --visible)";
+
   if [[ "$current_workspace" == "$focused_workspace" ]]; then
     sketchybar --set space.$current_workspace \
       drawing=on \
       label.color=$FOCUSED_COLOR \
       background.color=$FOCUSED_BACKGROUND_COLOR \
       background.border_color=$FOCUSED_BACKGROUND_BORDER_COLOR
+  elif [[ ! "$visible_workspaces" =~ "$current_workspace" ]]; then
+    sketchybar --set space.$current_workspace \
+      drawing=on \
+      label.color=$INVISIBLE_COLOR \
+      background.color=$INVISIBLE_BACKGROUND_COLOR \
+      background.border_color=$INVISIBLE_BACKGROUND_BORDER_COLOR
   else
     sketchybar --set space.$current_workspace \
       drawing=on \

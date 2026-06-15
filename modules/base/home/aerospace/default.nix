@@ -1,5 +1,7 @@
 { pkgs, ... }: let 
   bitwarden = "com.bitwarden.desktop";
+  datagrip = "com.jetbrains.datagrip";
+  figma = "com.figma.desktop";
   finder = "com.apple.finder";
   firefox = "org.nixos.firefox"; 
   kitty = "net.kovidgoyal.kitty";
@@ -22,9 +24,9 @@ in {
         "2" = 2;
         "3" = 3;
         "4" = 1;
-        "5" = 1;
-        "6" = 2;
-        "7" = 3;
+        "5" = 2;
+        "6" = 1;
+        "7" = 2;
         "8" = 3;
         "9" = 2;
       };
@@ -53,51 +55,74 @@ in {
         cmd-8 = "workspace 8";
         cmd-9 = "workspace 9";
 
-        alt-cmd-1 = [ "move-node-to-workspace --focus-follows-window 1"];
-        alt-cmd-2 = [ "move-node-to-workspace --focus-follows-window 2"];
-        alt-cmd-3 = [ "move-node-to-workspace --focus-follows-window 3"];
-        alt-cmd-4 = [ "move-node-to-workspace --focus-follows-window 4"];
-        alt-cmd-5 = [ "move-node-to-workspace --focus-follows-window 5"];
-        alt-cmd-6 = [ "move-node-to-workspace --focus-follows-window 6"];
-        alt-cmd-7 = [ "move-node-to-workspace --focus-follows-window 7"];
-        alt-cmd-8 = [ "move-node-to-workspace --focus-follows-window 8"];
-        alt-cmd-9 = [ "move-node-to-workspace --focus-follows-window 9"];
+        ctrl-cmd-1 = [ "move-node-to-workspace --focus-follows-window 1"];
+        ctrl-cmd-2 = [ "move-node-to-workspace --focus-follows-window 2"];
+        ctrl-cmd-3 = [ "move-node-to-workspace --focus-follows-window 3"];
+        ctrl-cmd-4 = [ "move-node-to-workspace --focus-follows-window 4"];
+        ctrl-cmd-5 = [ "move-node-to-workspace --focus-follows-window 5"];
+        ctrl-cmd-6 = [ "move-node-to-workspace --focus-follows-window 6"];
+        ctrl-cmd-7 = [ "move-node-to-workspace --focus-follows-window 7"];
+        ctrl-cmd-8 = [ "move-node-to-workspace --focus-follows-window 8"];
+        ctrl-cmd-9 = [ "move-node-to-workspace --focus-follows-window 9"];
 
         cmd-h = "focus --boundaries all-monitors-outer-frame left";  
         cmd-j = "focus --boundaries all-monitors-outer-frame down";  
         cmd-k = "focus --boundaries all-monitors-outer-frame up";  
         cmd-l = "focus --boundaries all-monitors-outer-frame right";  
 
-        alt-cmd-h = "move-workspace-to-monitor left";  
-        alt-cmd-j = "move-workspace-to-monitor down";  
-        alt-cmd-k = "move-workspace-to-monitor up";  
-        alt-cmd-l = "move-workspace-to-monitor right";  
+        ctrl-cmd-h = "move-node-to-monitor --focus-follows-window left";
+        ctrl-cmd-j = "move-node-to-monitor --focus-follows-window down";
+        ctrl-cmd-k = "move-node-to-monitor --focus-follows-window up";
+        ctrl-cmd-l = "move-node-to-monitor --focus-follows-window right";
 
+        cmd-s = "exec-and-forget screencapture -i -c";
         cmd-esc = "close";
-
-        cmd-space = "exec-and-forget pmset sleepnow";
+        cmd-backspace = "exec-and-forget pmset sleepnow";
 
         cmd-comma = "volume down";
         cmd-period = "volume up";
         cmd-m = "volume mute-toggle";
 
-        cmd-b = "exec-and-forget open -nb ${firefox}";
-        cmd-e = "exec-and-forget open -b ${finder}";
-        cmd-p = "exec-and-forget open -nb ${bitwarden}";
-        cmd-s = "exec-and-forget screencapture -i -c";
-        cmd-enter = "exec-and-forget open -nb ${kitty}";
+        ctrl-cmd-b = "exec-and-forget open -nb ${firefox}";
+        ctrl-cmd-d = "exec-and-forget open -b ${datagrip}";
+        ctrl-cmd-e = "exec-and-forget open -b ${finder}";
+        ctrl-cmd-f = "exec-and-forget open -b ${figma}";
+        ctrl-cmd-p = "exec-and-forget open -b ${bitwarden}";
+        ctrl-cmd-enter = "exec-and-forget open -nb ${kitty}";
       };
 
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
 
       on-window-detected = [
         {
+          "if".workspace = "9";
+          run = "balance-sizes";
+        }
+        {
           "if".app-id = bitwarden;
+          run = "move-node-to-workspace --focus-follows-window 8";
+        }
+        {
+          "if".app-id = datagrip;
+          run = "move-node-to-workspace --focus-follows-window 6";
+        }
+        {
+          "if".app-id = figma;
           run = "move-node-to-workspace --focus-follows-window 7";
         }
         {
           "if" .app-id = firefox;
+          "if".workspace = "5";
+          run = "balance-sizes";
+        }
+        {
+          "if" .app-id = firefox;
           run = "move-node-to-workspace --focus-follows-window 1";
+        }
+        {
+          "if".app-id = kitty;
+          "if".workspace = "4";
+          run = "balance-sizes";
         }
         {
           "if" .app-id = kitty;
