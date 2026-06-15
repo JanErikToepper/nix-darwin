@@ -1,5 +1,8 @@
 { config, ... }: {
-  imports = [ ./aerospace ];
+  imports = [
+    ./aerospace
+    ./firefox
+  ];
 
   home = {
     username = config.user;

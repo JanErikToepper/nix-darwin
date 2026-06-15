@@ -4,9 +4,7 @@
     ./kill-all-aerospace-windows
     ./patched-shutdown
     ./pull-nix-darwin-configuration
-    ./pull-nix-darwin-configuration-and-trigger-drs-watch
     ./push-nix-darwin-configuration
-    ./trigger-drs-watch
   ];
 
   options.customScripts = lib.mkOption {
@@ -18,8 +16,6 @@
     kill-all-aerospace-windows
     patched-shutdown
     pull-nix-darwin-configuration
-    pull-nix-darwin-configuration-and-trigger-drs-watch
     push-nix-darwin-configuration
-    trigger-drs-watch
   ];
 }
