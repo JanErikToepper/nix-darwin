@@ -19,8 +19,10 @@
         config = {
           Label = "toepper.pull-nix-darwin-configuration";
           ProgramArguments = [
-            "${config.customScripts.pull-nix-darwin-configuration}/bin/pull-nix-darwin-configuration"
+            "${config.customScripts.pull-nix-darwin-configuration-and-trigger-drs-watch}/bin/pull-nix-darwin-configuration-and-trigger-drs-watch"
           ];
+          StandardErrorPath = /Users/toepper/error.log;
+          StandardOutPath = /Users/toepper/out.log;
           RunAtLoad = true;
           UserName = config.user;
         };
