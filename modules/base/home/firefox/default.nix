@@ -47,6 +47,11 @@
           }; 
         }; 
       };
+      Homepage = {
+        URL = "https://vimium.github.io/new-tab/";
+        Locked = true;
+        StartPage = "homepage-locked";
+      };
       ManualAppUpdateOnly = true;
       NetworkPrediction = true;
       OfferToSaveLogins = false;

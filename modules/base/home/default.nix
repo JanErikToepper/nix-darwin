@@ -1,5 +1,6 @@
 { config, ... }: {
   imports = [
+    ./activation
     ./aerospace
     ./fd
     ./firefox
