@@ -21,12 +21,16 @@ in {
 
     profiles.toepper.bookmarks.settings = [
       {
+        name = "Angular";
+        url = "https://angular.dev/overview/";
+      }
+      {
         name = "Argo dev";
-        url = "https://argocd-base-d-k8s10-hz1.hornetsecurity.com/applications/argocd/sas-cp-module-sas-cp-module";
+        url = "https://argocd-base-d-k8s10-hz1.hornetsecurity.com/applications/argocd/sas-cp-module-sas-cp-module/";
       }
       {
         name = "Confluence";
-        url = "https://hornetsecurity.atlassian.net/wiki/spaces/~71202057f4f674c427493d9ffeaa613e7b0358/overview";
+        url = "https://hornetsecurity.atlassian.net/wiki/spaces/~71202057f4f674c427493d9ffeaa613e7b0358/overview/";
       }
       {
         name = "cptest2";
@@ -63,6 +67,10 @@ in {
       {
         name = "Pyxis storybook";
         url = "http://localhost:8102/";
+      }
+      {
+        name = "RxJS";
+        url = "https://rxjs.dev/guide/overview/";
       }
       {
         name = "SE - Help Center";

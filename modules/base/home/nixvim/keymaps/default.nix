@@ -36,7 +36,7 @@ in {
       }
       {
         mode = "n"; 
-        key = "gr";
+        key = "gR";
         action = "<cmd>lua require('telescope.builtin').lsp_references()<cr>";
       }
       {

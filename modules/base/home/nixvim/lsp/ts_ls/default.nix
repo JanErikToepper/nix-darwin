@@ -1,5 +1,5 @@
 { ... }: {
-  programs.nixvim.lsp.servers.tsgo = {
+  programs.nixvim.lsp.servers.ts_ls = {
     enable = true; 
     config = {
       init_options = {

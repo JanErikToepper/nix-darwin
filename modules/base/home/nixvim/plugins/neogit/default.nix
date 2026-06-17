@@ -1,6 +1,14 @@
-{ ... }: {
+{ pkgs, ... }: let
+  neogitPackage = pkgs.fetchFromGitHub {
+    owner = "NeogitOrg"; 
+    repo = "neogit";
+    rev = "e106a39a8a37a9420f374545c876f8b52baf1c80";
+    sha256 = "aGXM/vhK+kW7CMQXfjK8mbWgR3x87pH2iwqb+2mxFDU=";
+  };
+in {
   programs.nixvim.plugins.neogit = {
     enable = true; 
+    package = neogitPackage;
     settings = {
       disable_hint = true;
       disable_context_highlighting = true; 

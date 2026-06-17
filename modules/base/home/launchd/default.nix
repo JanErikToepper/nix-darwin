@@ -8,7 +8,7 @@
           Label = "toepper.set-background";
           ProgramArguments = [
             "${pkgs.desktoppr}/bin/desktoppr"
-            "/etc/nix-darwin/modules/base/assets/black-background.avif"
+            "/etc/nix-darwin/modules/base/assets/black-background.jpg"
           ];
           RunAtLoad = true;
           UserName = config.user;

@@ -93,6 +93,11 @@
     };
     
     profiles.toepper = {
+      settings = {
+        "browser.startup.homepage" = "https://vimium.github.io/new-tab/";
+        "browser.startup.page" = 1;
+      };
+
       bookmarks = {
         force = true; 
         settings = [

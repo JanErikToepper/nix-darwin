@@ -1,5 +1,5 @@
 { ... }: {
-  imports = [ ./tsgo ];
+  imports = [ ./ts_ls ];
 
   programs.nixvim.lsp = {
     keymaps = [
