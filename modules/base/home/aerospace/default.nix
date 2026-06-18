@@ -1,11 +1,24 @@
 { pkgs, ... }: let 
   bitwarden = "com.bitwarden.desktop";
   datagrip = "com.jetbrains.datagrip";
-  figma = "com.figma.desktop";
+  docker = "com.electron.dockerdesktop";
+  figma = "com.figma.Desktop";
   finder = "com.apple.finder";
   firefox = "org.nixos.firefox"; 
   kitty = "net.kovidgoyal.kitty";
 in {
+  /*
+    1 = Firefox
+    2 = Kitty
+    3 = Communication
+    4 = Kitty
+    5 = Firefox
+    6 = Datagrip
+    7 = Figma
+    8 = Bitwarden
+    9 = Docker
+  */
+
   programs.aerospace = {
     enable = true;
 
@@ -29,6 +42,7 @@ in {
         "7" = 2;
         "8" = 3;
         "9" = 2;
+        "X" = 2;
       };
 
       gaps = {
@@ -84,10 +98,11 @@ in {
         cmd-m = "volume mute-toggle";
 
         ctrl-cmd-b = "exec-and-forget open -nb ${firefox}";
-        ctrl-cmd-d = "exec-and-forget open -b ${datagrip}";
+        ctrl-cmd-d = "exec-and-forget open -b ${docker}";
         ctrl-cmd-e = "exec-and-forget open -b ${finder}";
         ctrl-cmd-f = "exec-and-forget open -b ${figma}";
         ctrl-cmd-p = "exec-and-forget open -b ${bitwarden}";
+        ctrl-cmd-s = "exec-and-forget open -b ${datagrip}";
         ctrl-cmd-enter = "exec-and-forget open -nb ${kitty}";
       };
 
@@ -105,6 +120,10 @@ in {
         {
           "if".app-id = datagrip;
           run = "move-node-to-workspace --focus-follows-window 6";
+        }
+        {
+          "if".app-id = docker;
+          run = "move-node-to-workspace 9";
         }
         {
           "if".app-id = figma;
@@ -134,6 +153,7 @@ in {
         "exec-and-forget sketchybar"
         "exec-and-forget open -b ${firefox}"
         "exec-and-forget open -b ${kitty}"
+        "exec-and-forget open -b ${docker}"
       ];
 
       exec-on-workspace-change = [ "${pkgs.bash}/bin/bash" "-c" "${pkgs.sketchybar}/bin/sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE" ];
