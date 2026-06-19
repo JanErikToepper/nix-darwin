@@ -20,7 +20,7 @@
         history = false;
         preview.timeout = 1000;
         file_ignore_patterns = [
-          ".git/"
+          "\\.git/"
           "package-lock.json"
         ];
       }; 

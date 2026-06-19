@@ -13,7 +13,7 @@ in {
       }
       {
         "if".app-id = steam;
-        run = "move-node-to-workspace 8";
+        run = "move-node-to-workspace 3";
       }
     ];
   };
