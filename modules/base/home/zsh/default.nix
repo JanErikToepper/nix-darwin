@@ -12,8 +12,6 @@
     };
     initContent = ''
       [[ -z "$TMUX" ]]  && { tmux attach || tmux }
-
-      eval "$(devenv hook zsh)";
     '';
   };
 }

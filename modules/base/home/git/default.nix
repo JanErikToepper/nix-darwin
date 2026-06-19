@@ -4,9 +4,7 @@
     ignores = [
       ".devenv*" 
       "devenv*"
-      ".direnv/"
       ".env"
-      ".envrc"
       ".hurl/"
       ".watch/"
       "build/"

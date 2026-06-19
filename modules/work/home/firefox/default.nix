@@ -3,6 +3,10 @@
 in {
   programs.firefox = {
     policies = {
+      Extensions = {
+        Install = [ "https://addons.mozilla.org/firefox/downloads/file/4845693/angular_devtools-1.16.0.xpi" ]; 
+        Locked = [ "https://addons.mozilla.org/firefox/downloads/file/4845693/angular_devtools-1.16.0.xpi" ]; 
+      };
       Handler.schemes.mailTo.handlers = [{
         name = "Outlook";
         urlTemplate = outlookUrl;
@@ -46,7 +50,7 @@ in {
       }
       {
         name = "Jira";
-        url = "https://hornetsecurity.atlassian.net/jira/dashboards/10279/";
+        url = "https://hornetsecurity.atlassian.net/jira/dashboards/13221/";
       }
       {
         name = "Legacy Gitlab";

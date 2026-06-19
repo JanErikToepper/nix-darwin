@@ -122,7 +122,7 @@ in {
       {
         mode = "n"; 
         key = "<leader>ga";
-        action = "<cmd>lua ${stageAll}; require('neogit').action('commit', 'ammend')()<cr>";
+        action = "<cmd>lua ${stageAll}; require('neogit').action('commit', 'amend')()<cr>";
       }
       {
         mode = "n"; 
@@ -247,7 +247,7 @@ in {
       {
         mode = "n"; 
         key = "<leader>rc";
-        action = "<cmd>lua continue_rebase()<cr>";
+        action = "<cmd>lua continue_rebase(); ${redrawStatusLine}<cr>";
       }
       {
         mode = "n"; 

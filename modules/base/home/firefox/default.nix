@@ -154,11 +154,11 @@
             url = "https://nodejs.org/docs/latest/api/";
           }
           {
-            name = "Nginx";
+            name = "nginx";
             url = "https://nginx.org/en/docs/";
           }
           {
-            name = "Pnpm";
+            name = "pnpm";
             url = "https://pnpm.io/motivation/";
           }
           {

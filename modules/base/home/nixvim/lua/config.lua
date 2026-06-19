@@ -86,13 +86,17 @@ function _G.switch_branch()
 end
 
 function _G.continue_rebase()
-  local has_open_conflicts = vim.fn.trim(vim.fn.system("git diff --name-only --diff-filter=U")) ~= ""
+  vim.fn.system({ 'git', 'grep', '--quiet', '<<<<<<<' })
+
+  local has_open_conflicts = vim.v.shell_error == 0
 
   if has_open_conflicts then
     vim.notify("Open merge conflicts", "warn", { title = "Neogit" })
 
     return
   end
+
+  cmd('git add --all')
 
   require("neogit").action("rebase", "continue")()
 end
