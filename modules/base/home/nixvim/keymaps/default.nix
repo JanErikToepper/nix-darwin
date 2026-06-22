@@ -31,18 +31,18 @@ in {
       }
       {
         mode = "n"; 
-        key = "gl";
-        action = "<cmd>LspRestart<cr>";
-      }
-      {
-        mode = "n"; 
         key = "gR";
         action = "<cmd>lua require('telescope.builtin').lsp_references()<cr>";
       }
       {
         mode = "n";
         key = "gt";
-        action = "<cmd>lua require('telescope.builtins').lsp_type_definitions()<cr>";
+        action = "<cmd>lua require('telescope.builtin').lsp_type_definitions()<cr>";
+      }
+      {
+        mode = "n";
+        key = "K";
+        action = "<cmd>lua vim.lsp.buf.hover({ border = \"single\" })<cr>";
       }
       {
         mode = "n"; 
@@ -52,12 +52,12 @@ in {
       {
         mode = "n"; 
         key = "<leader>dn";
-        action = "<cmd>lua vim.diagnostic.goto_next()<cr>";
+        action = "<cmd>lua vim.diagnostic.jump({ count = 1, float = true })<cr>";
       }
       {
         mode = "n"; 
         key = "<leader>dp";
-        action = "<cmd>lua vim.diagnostic.goto_prev()<cr>";
+        action = "<cmd>lua vim.diagnostic.jump({ count = -1, float = true })<cr>";
       }
       {
         mode = "n"; 
@@ -77,7 +77,7 @@ in {
       {
         mode = "n"; 
         key = "<leader>ff";
-        action = "<cmd>lua require('telescope.builtin').find_files({ hidden=true })<cr>";
+        action = "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>";
       }
       {
         mode = "n"; 

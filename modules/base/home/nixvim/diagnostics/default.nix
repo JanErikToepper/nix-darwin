@@ -3,6 +3,7 @@
     virtual_text.spacing = 1;
     signs = false; 
     float = {
+      border = "single";
       scope = "c"; 
       header = "";
       source = false;

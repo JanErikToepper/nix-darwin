@@ -1,7 +1,10 @@
 { ... }: {
   homebrew = {
     enable = true; 
-    onActivation.cleanup = "uninstall";
+    onActivation = {
+      autoUpdate = true;
+      cleanup = "uninstall";
+    };
     brews = [ "docker" ];
     casks = [
       "bitwarden"

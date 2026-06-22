@@ -8,12 +8,12 @@
         lspBufAction = "code_action";
       } 
       {
-        key = "gr"; 
-        lspBufAction = "rename";
+        key = "gl";
+        action = "<cmd>LspRestart<cr>";
       }
       {
-        key = "K"; 
-        lspBufAction = "hover";
+        key = "gr"; 
+        lspBufAction = "rename";
       }
     ]; 
 

@@ -20,8 +20,8 @@
         history = false;
         preview.timeout = 1000;
         file_ignore_patterns = [
-          "\\.git/"
-          "package-lock.json"
+          "%.git%/"
+          "package-lock%.json"
         ];
       }; 
       pickers.git_branches = {
