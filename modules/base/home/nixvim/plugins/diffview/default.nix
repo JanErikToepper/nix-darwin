@@ -31,7 +31,7 @@ in {
           {
             mode = "n"; 
             key = "<leader>N";
-            action = "<cmd>lua require('diffview.actions').next_conflicts()<cr>";
+            action = "<cmd>lua require('diffview.actions').next_conflict()<cr>";
           }
           {
             mode = "n"; 
@@ -41,7 +41,7 @@ in {
           {
             mode = "n"; 
             key = "<leader>P";
-            action = "<cmd>lua require('diffview.actions').prev_conflicts()<cr>";
+            action = "<cmd>lua require('diffview.actions').prev_conflict()<cr>";
           }
         ] ++ commonKeymaps; 
         file_panel = commonKeymaps;

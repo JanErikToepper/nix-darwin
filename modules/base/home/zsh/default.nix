@@ -5,7 +5,7 @@
     shellAliases = {
       configure = "cd /etc/nix-darwin/modules; nvim .";
       ds = "devenv shell -q";
-      drs = "sudo darwin-rebuild-switch";
+      drs = "stage-nix-darwin-configuration && sudo darwin-rebuild-switch";
       reboot = "sudo kill-all-aerospace-windows && sudo reboot";
       shutdown = "push-nix-darwin-configuration && sudo patched-shutdown";
       tx = "tmuxifier";

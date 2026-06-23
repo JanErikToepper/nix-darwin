@@ -86,5 +86,13 @@
       };
       WindowManager.StandardHideWidgets = true;
     };
+    activationScripts = {
+      disableLoginItems = {
+        enable = true;
+        text = ''
+          osascript -e 'tell application "System Events" to set hidden of every login item to true'
+        '';
+      }; 
+    };
   };
 }

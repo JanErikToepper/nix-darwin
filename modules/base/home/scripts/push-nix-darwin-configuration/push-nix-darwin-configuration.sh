@@ -1,5 +1,5 @@
 function main() {
-  git -C /etc/nix-darwin add --all .;
+  stage-nix-darwin-configuration;
 
   if ! git -C /etc/nix-darwin diff-index --quiet HEAD; then
     local timestamp;
