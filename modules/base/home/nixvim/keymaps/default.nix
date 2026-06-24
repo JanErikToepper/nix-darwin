@@ -247,7 +247,7 @@ in {
       {
         mode = "n"; 
         key = "<leader>rc";
-        action = "<cmd>lua continue_rebase(); ${redrawStatusLine}<cr>";
+        action = "<cmd>lua continue_rebase()<cr>";
       }
       {
         mode = "n"; 
