@@ -30,6 +30,11 @@ in {
         action = "<cmd>lua require('telescope.builtin').lsp_implementations()<cr>";
       }
       {
+        mode = "n";
+        key = "gl";
+        action = "<cmd>lsp restart<cr>";
+      }
+      {
         mode = "n"; 
         key = "gR";
         action = "<cmd>lua require('telescope.builtin').lsp_references()<cr>";
