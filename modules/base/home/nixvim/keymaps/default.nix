@@ -167,7 +167,7 @@ in {
       {
         mode = "n"; 
         key = "<leader>gp";
-        action = "<cmd>lua require('neogit').action('pull', 'from_pushremote', { '--autostash', '--rebase' })(); ${redrawStatusLine}<cr>";
+        action = "<cmd>lua require('neogit').action('pull', 'from_pushremote', { '--rebase' })(); ${redrawStatusLine}<cr>";
       }
       {
         mode = "n"; 
