@@ -42,9 +42,6 @@ in {
         "7" = 2;
         "8" = 3;
         "9" = 2;
-        "X" = 1;
-        "Y" = 2;
-        "Z" = 3;
       };
 
       gaps = {
@@ -70,9 +67,7 @@ in {
         cmd-7 = "workspace 7";
         cmd-8 = "workspace 8";
         cmd-9 = "workspace 9";
-        cmd-x = "workspace X";
-        cmd-y = "workspace Z";
-        cmd-z = "workspace Y";
+        cmd-0 = "workspace 0";
 
         ctrl-cmd-1 = [ "move-node-to-workspace --focus-follows-window 1"];
         ctrl-cmd-2 = [ "move-node-to-workspace --focus-follows-window 2"];
@@ -83,19 +78,17 @@ in {
         ctrl-cmd-7 = [ "move-node-to-workspace --focus-follows-window 7"];
         ctrl-cmd-8 = [ "move-node-to-workspace --focus-follows-window 8"];
         ctrl-cmd-9 = [ "move-node-to-workspace --focus-follows-window 9"];
-        ctrl-cmd-x = [ "move-node-to-workspace --focus-follows-window X"];
-        ctrl-cmd-y = [ "move-node-to-workspace --focus-follows-window Z"];
-        ctrl-cmd-z = [ "move-node-to-workspace --focus-follows-window Y"];
+        ctrl-cmd-0 = [ "move-node-to-workspace --focus-follows-window 0"];
 
         cmd-h = "focus --boundaries all-monitors-outer-frame left";  
         cmd-j = "focus --boundaries all-monitors-outer-frame down";  
         cmd-k = "focus --boundaries all-monitors-outer-frame up";  
         cmd-l = "focus --boundaries all-monitors-outer-frame right";  
 
-        ctrl-cmd-h = "move-node-to-monitor --focus-follows-window left";
-        ctrl-cmd-j = "move-node-to-monitor --focus-follows-window down";
-        ctrl-cmd-k = "move-node-to-monitor --focus-follows-window up";
-        ctrl-cmd-l = "move-node-to-monitor --focus-follows-window right";
+        ctrl-cmd-h = "move-workspace-to-monitor left";
+        ctrl-cmd-j = "move-workspace-to-monitor down";
+        ctrl-cmd-k = "move-workspace-to-monitor up";
+        ctrl-cmd-l = "move-workspace-to-monitor right";
 
         cmd-s = "exec-and-forget screencapture -i -c";
         cmd-esc = "close";
@@ -118,7 +111,7 @@ in {
 
       on-window-detected = [
         {
-          "if".workspace = "9";
+          "if".workspace = "0";
           run = "balance-sizes";
         }
         {

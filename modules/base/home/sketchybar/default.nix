@@ -43,7 +43,7 @@ in {
 
       sketchybar --add event aerospace_workspace_change;
 
-      for workspace in 1 2 3 4 5 6 7 8 9 X Y Z; do
+      for workspace in {0..9}; do
         sketchybar --add item space.$workspace left \
           --subscribe space.$workspace aerospace_workspace_change system_woke \
           --set space.$workspace \
