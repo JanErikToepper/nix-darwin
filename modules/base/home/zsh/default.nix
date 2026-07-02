@@ -3,7 +3,7 @@
     enable = true;
     autocd = true;
     shellAliases = {
-      configure = "cd /etc/nix-darwin/modules; nvim .";
+      configure = "cd /etc/nix-darwin; nvim";
       ds = "devenv shell -q";
       drs = "stage-nix-darwin-configuration && sudo darwin-rebuild-switch";
       reboot = "sudo kill-all-aerospace-windows && sudo reboot";

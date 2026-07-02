@@ -1,5 +1,6 @@
 { config, ... }: {
   imports = [
+    ./aerospace
     ./firefox
   ];
 

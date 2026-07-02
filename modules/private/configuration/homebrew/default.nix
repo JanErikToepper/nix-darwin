@@ -1,3 +1,6 @@
 { ... }: {
-  homebrew.casks = [ "balenaetcher" ];
+  homebrew.casks = [
+    "balenaetcher"
+    "steam"
+  ];
 }

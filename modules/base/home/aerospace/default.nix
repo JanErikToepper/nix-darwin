@@ -8,6 +8,7 @@
   kitty = "net.kovidgoyal.kitty";
 in {
   /*
+    0 = Empty
     1 = Firefox
     2 = Kitty
     3 = Communication
@@ -33,6 +34,7 @@ in {
       persistent-workspaces = [ "1" "2" "3" ];
 
       workspace-to-monitor-force-assignment = {
+        "0" = 2;
         "1" = 1;
         "2" = 2;
         "3" = 3;
@@ -58,6 +60,7 @@ in {
       };
 
       mode.main.binding = {
+        cmd-0 = "workspace 0";
         cmd-1 = "workspace 1";
         cmd-2 = "workspace 2";
         cmd-3 = "workspace 3";
@@ -67,8 +70,8 @@ in {
         cmd-7 = "workspace 7";
         cmd-8 = "workspace 8";
         cmd-9 = "workspace 9";
-        cmd-0 = "workspace 0";
 
+        ctrl-cmd-0 = [ "move-node-to-workspace --focus-follows-window 0"];
         ctrl-cmd-1 = [ "move-node-to-workspace --focus-follows-window 1"];
         ctrl-cmd-2 = [ "move-node-to-workspace --focus-follows-window 2"];
         ctrl-cmd-3 = [ "move-node-to-workspace --focus-follows-window 3"];
@@ -78,7 +81,6 @@ in {
         ctrl-cmd-7 = [ "move-node-to-workspace --focus-follows-window 7"];
         ctrl-cmd-8 = [ "move-node-to-workspace --focus-follows-window 8"];
         ctrl-cmd-9 = [ "move-node-to-workspace --focus-follows-window 9"];
-        ctrl-cmd-0 = [ "move-node-to-workspace --focus-follows-window 0"];
 
         cmd-h = "focus --boundaries all-monitors-outer-frame left";  
         cmd-j = "focus --boundaries all-monitors-outer-frame down";  
