@@ -1,10 +1,11 @@
 { ... }: {
   programs.nixvim.colorschemes = {
     ayu.enable = false;
-    bamboo.enable = true;
+    bamboo.enable = false;
     catppuccin= {
-      enable = false; 
+      enable = true; 
       settings.flavour = "mocha";
     }; 
+    cyberdream.enable = false;
   };
 }
