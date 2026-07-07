@@ -10,7 +10,7 @@ function _G.get_branch_name()
     commit:close()
 
     if branch_name then
-      return string.format('[%s] : %s', branch_name, commit_name)
+      return string.format('[%s] | %s', branch_name, commit_name)
     else
       return ""
     end
