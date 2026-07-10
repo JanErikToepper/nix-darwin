@@ -5,7 +5,6 @@
     ./codediff
     ./diffview
     ./gitsigns
-    ./harpoon
     ./markview
     ./neogit
     ./none-ls

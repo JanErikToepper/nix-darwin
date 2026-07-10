@@ -100,11 +100,6 @@ in {
         action = "<cmd>lua require('telescope.builtin').grep_string()<cr>";
       }
       {
-        mode = "n";
-        key = "<leader>fm";
-        action = "<cmd>Telescope harpoon marks<cr>";
-      }
-      {
         mode = "n"; 
         key = "<leader>fq";
         action = "<cmd>lua vim.cmd('cclose'); require('telescope.builtin').quickfix()<cr>";
@@ -210,13 +205,8 @@ in {
         action = "<cmd>e!<cr>";
       }
       {
-        mode = "n";
-        key = "<leader>ma";
-        action = "<cmd>lua require('harpoon'):list():add()<cr>";
-      }
-      {
         mode = "n"; 
-        key = "<leader>mt";
+        key = "<leader>m";
         action = "<cmd>Markview splitToggle<cr>";
       }
       {
