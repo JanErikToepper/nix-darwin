@@ -34,7 +34,6 @@ in {
       persistent-workspaces = [ "1" "2" "3" ];
 
       workspace-to-monitor-force-assignment = {
-        "0" = 2;
         "1" = 1;
         "2" = 2;
         "3" = 3;
