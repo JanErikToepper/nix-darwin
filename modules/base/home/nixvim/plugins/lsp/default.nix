@@ -1,22 +1,12 @@
 { ... }: {
   imports = [ ./ts_ls ];
 
-  programs.nixvim.lsp = {
-    keymaps = [
-      {
-        key = "ga"; 
-        lspBufAction = "code_action";
-      } 
-      {
-        key = "gr"; 
-        lspBufAction = "rename";
-      }
-    ]; 
-
+  programs.nixvim.plugins.lsp = {
+    enable = true;
     servers = {
       bashls.enable = true; 
       cssls.enable = true;
-      diagnosticsls.enable = true;
+      diagnosticls.enable = true;
       dockerls.enable = true;
       html.enable = true;
       jdtls.enable = true;

@@ -6,7 +6,6 @@
     ./diagnostics
     ./editorconfig
     ./keymaps
-    ./lsp
     ./lua
     ./opts
     ./plugins

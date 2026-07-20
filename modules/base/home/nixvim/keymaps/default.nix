@@ -35,6 +35,11 @@ in {
         action = "<cmd>lsp restart<cr>";
       }
       {
+        mode = "n";
+        key = "gr";
+        action = "<cmd>lua vim.lsp.buf.rename()<cr>";
+      }
+      {
         mode = "n"; 
         key = "gR";
         action = "<cmd>lua require('telescope.builtin').lsp_references()<cr>";
@@ -100,6 +105,11 @@ in {
         action = "<cmd>lua require('telescope.builtin').grep_string()<cr>";
       }
       {
+        mode = "n";
+        key = "<leader>fm";
+        action = "<cmd>Telescope harpoon marks<cr>";
+      }
+      {
         mode = "n"; 
         key = "<leader>fq";
         action = "<cmd>lua vim.cmd('cclose'); require('telescope.builtin').quickfix()<cr>";
@@ -113,6 +123,11 @@ in {
         mode = "n"; 
         key = "<leader>fs";
         action = "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>fw";
+        action = "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>";
       }
       {
         mode = "n"; 
@@ -205,8 +220,13 @@ in {
         action = "<cmd>e!<cr>";
       }
       {
+        mode = "n";
+        key = "<leader>ma";
+        action = "<cmd>lua require('harpoon'):list():add()<cr>";
+      }
+      {
         mode = "n"; 
-        key = "<leader>m";
+        key = "<leader>mt";
         action = "<cmd>Markview splitToggle<cr>";
       }
       {

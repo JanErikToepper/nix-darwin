@@ -2,9 +2,10 @@
   imports = [
     ./auto-save
     ./cmp
-    ./codediff
     ./diffview
     ./gitsigns
+    ./harpoon
+    ./lsp
     ./markview
     ./neogit
     ./none-ls
@@ -18,7 +19,6 @@
   programs.nixvim.plugins = {
     autoclose.enable = true; 
     jdtls.enable = true;
-    lspconfig.enable = true;
     tmux-navigator.enable = true;
     ts-autotag.enable = true;
     web-devicons.enable = true;
