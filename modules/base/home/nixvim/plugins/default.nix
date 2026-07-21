@@ -2,6 +2,7 @@
   imports = [
     ./auto-save
     ./cmp
+    ./codediff
     ./diffview
     ./gitsigns
     ./harpoon
