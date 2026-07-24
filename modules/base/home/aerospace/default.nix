@@ -5,7 +5,7 @@
   figma = "com.figma.Desktop";
   finder = "com.apple.finder";
   firefox = "org.nixos.firefox"; 
-  kitty = "net.kovidgoyal.kitty";
+  alacritty = "org.alacritty";
 in {
   /*
     0 = Empty
@@ -105,7 +105,7 @@ in {
         ctrl-cmd-f = "exec-and-forget open -b ${figma}";
         ctrl-cmd-p = "exec-and-forget open -b ${bitwarden}";
         ctrl-cmd-s = "exec-and-forget open -b ${datagrip}";
-        ctrl-cmd-enter = "exec-and-forget open -nb ${kitty}";
+        ctrl-cmd-enter = "exec-and-forget open -nb ${alacritty}";
       };
 
       on-focused-monitor-changed = [ "move-mouse monitor-lazy-center" ];
@@ -141,12 +141,12 @@ in {
           run = "move-node-to-workspace --focus-follows-window 1";
         }
         {
-          "if".app-id = kitty;
+          "if".app-id = alacritty;
           "if".workspace = "4";
           run = "balance-sizes";
         }
         {
-          "if" .app-id = kitty;
+          "if" .app-id = alacritty;
           run = "move-node-to-workspace --focus-follows-window 2";
         }
       ];
@@ -154,7 +154,7 @@ in {
       after-startup-command = [
         "exec-and-forget sketchybar"
         "exec-and-forget open -b ${firefox}"
-        "exec-and-forget open -b ${kitty}"
+        "exec-and-forget open -b ${alacritty}"
         "exec-and-forget open -b ${docker}"
       ];
 

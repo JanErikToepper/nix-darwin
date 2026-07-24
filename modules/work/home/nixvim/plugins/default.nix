@@ -1,3 +1,6 @@
 { ... }: {
-  imports = [ ./neogit ];
+  imports = [
+    ./lsp
+    ./neogit
+  ];
 }

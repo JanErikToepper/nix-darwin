@@ -2,10 +2,10 @@
   imports = [
     ./activation
     ./aerospace
+    ./alacritty
     ./fd
     ./firefox
     ./git
-    ./kitty
     ./launchd
     ./nixvim
     ./packages
