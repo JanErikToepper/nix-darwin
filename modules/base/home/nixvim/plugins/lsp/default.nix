@@ -14,7 +14,6 @@
       lua_ls.enable = true;
       marksman.enable = true;
       nixd.enable = true;
-      tailwindcss.enable = true;
     };
   };
 }

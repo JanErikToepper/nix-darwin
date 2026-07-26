@@ -6,6 +6,7 @@
     ./pull-nix-darwin-configuration
     ./push-nix-darwin-configuration
     ./stage-nix-darwin-configuration
+    ./watch
   ];
 
   options.customScripts = lib.mkOption {
@@ -19,5 +20,6 @@
     pull-nix-darwin-configuration
     push-nix-darwin-configuration
     stage-nix-darwin-configuration
+    watch
   ];
 }

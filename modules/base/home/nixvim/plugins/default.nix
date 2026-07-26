@@ -19,6 +19,7 @@
   programs.nixvim.plugins = {
     autoclose.enable = true; 
     jdtls.enable = true;
+    spring-boot.enable = true;
     tmux-navigator.enable = true;
     ts-autotag.enable = true;
     web-devicons.enable = true;

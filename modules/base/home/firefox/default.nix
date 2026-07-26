@@ -106,92 +106,44 @@
             url = "https://www.gnu.org/software/bash/manual/bash.html";
           }
           {
-            name = "Docker"; 
-            url = "https://docs.docker.com/";
+            name = "devenv";
+            url = "https://devenv.sh/";
           }
           {
-            name = "Faker";
-            url = "https://fakerjs.dev/api/";
+            name = "Docker"; 
+            url = "https://docs.docker.com/";
           }
           {
             name = "Git"; 
             url = "https://git-scm.com/docs";
           }
           {
-            name = "Localhost";
-            url = "http://localhost:4200/";
+            name = "Java";
+            url = "https://docs.oracle.com/en/java/javase/26/";
           }
           {
-            name = "Lodash";
-            url = "https://lodash.com/docs/";
+            name = "Localhost";
+            url = "http://localhost:8080/";
           }
           {
             name = "Lua";
             url = "https://www.lua.org/manual/5.5/";
           }
           {
-            name = "MDN";
-            url = "https://developer.mozilla.org/";
-          }
-          {
-            name = "Moment.js";
-            url = "https://momentjs.com/docs/";
-          }
-          {
-            name = "MSW";
-            url = "https://mswjs.io/docs/";
-          }
-          {
-            name = "MSW data";
-            url = "https://github.com/mswjs/data/";
-          }
-          {
             name = "Nix"; 
             url = "https://nix.dev/manual/nix/2.34/";
           } 
           {
-            name = "Node.js";
-            url = "https://nodejs.org/docs/latest/api/";
-          }
-          {
             name = "nginx";
             url = "https://nginx.org/en/docs/";
-          }
-          {
-            name = "pnpm";
-            url = "https://pnpm.io/motivation/";
           }
           {
             name = "RabbitMQ";
             url = "https://www.rabbitmq.com/docs/";
           }
           {
-            name = "React"; 
-            url = "https://react.dev/";
-          }
-          {
-            name = "SCSS";
-            url = "https://sass-lang.com/documentation/";
-          }
-          {
-            name = "Tailwind";
-            url = "https://tailwindcss.com/docs/";
-          }
-          {
-            name = "TypeScript";
-            url = "https://www.typescriptlang.org/docs/";
-          }
-          {
-            name = "Vite";
-            url = "https://vite.dev/config/";
-          }
-          {
-            name = "Vitest";
-            url = "https://vitest.dev/guide/";
-          }
-          {
-            name = "Zod";
-            url = "https://zod.dev/";
+            name = "Spring Boot";
+            url = "https://docs.spring.io/spring-boot/index.html";
           }
         ];
       }; 

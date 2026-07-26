@@ -8,5 +8,6 @@
     prettierd
     entr
     hurl
+    spring-boot-cli
   ];
 }
