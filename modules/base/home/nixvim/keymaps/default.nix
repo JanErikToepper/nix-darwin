@@ -20,6 +20,11 @@ in {
         action = "<c-w><";
       }
       {
+        mode = "n";
+        key = "ga";
+        action = "<cmd>lua vim.lsp.buf.code_action()<cr>";
+      }
+      {
         mode = "n";  
         key = "gd";
         action = "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>";

@@ -50,7 +50,7 @@ function handle_changes() {
 }
 
 export -f handle_changes;
-export -f track_changes;
+export -f emit_change_detection;
 export DIRECTORY_ID;
 export QUERY;
 
