@@ -101,10 +101,10 @@ function _G.continue_rebase()
   require("neogit").action("rebase", "continue")()
 end
 
-function _G.lsp_import()
+function _G.add_javadoc_comment()
   vim.lsp.buf.code_action({
     filter = function(x)
-      return x.kind == 'quickfix' and string.match(x.title, 'import')
+      return string.match(x.title, 'Add Javadoc comment')
     end,
     apply = true,
   })

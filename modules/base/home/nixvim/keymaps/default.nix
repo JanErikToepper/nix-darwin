@@ -60,6 +60,11 @@ in {
         action = "<cmd>lua vim.lsp.buf.hover({ border = \"single\" })<cr>";
       }
       {
+        mode = "n";
+        key = "<leader>c";
+        action = "<cmd>lua add_javadoc_comment()<cr>";
+      }
+      {
         mode = "n"; 
         key = "<leader>dk";
         action = "<cmd>lua vim.diagnostic.open_float()<cr>";
@@ -212,7 +217,7 @@ in {
       {
         mode = "n";
         key = "<leader>i"; 
-        action = "<cmd>lua lsp_import()<cr>";
+        action = "<cmd>lua require('jdtls').organize_imports()<cr>";
       }
       {
         mode = "n"; 
