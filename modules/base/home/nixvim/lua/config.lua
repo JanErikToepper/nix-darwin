@@ -101,11 +101,29 @@ function _G.continue_rebase()
   require("neogit").action("rebase", "continue")()
 end
 
-function _G.add_javadoc_comment()
+function _G.apply_code_action(title, has_open_end)
   vim.lsp.buf.code_action({
     filter = function(x)
-      return string.match(x.title, 'Add Javadoc comment')
+      return string.match(x.title, '^' .. title .. (has_open_end and '' or '$'))
     end,
     apply = true,
+  })
+end
+
+local function join_undo()
+  pcall(
+    function()
+      vim.cmd('undojoin')
+    end
+  )
+end
+
+function _G.handle_buffer_write()
+  join_undo()
+
+  vim.lsp.buf.format({
+    filter = function(client)
+      return client.name == 'null-ls'
+    end
   })
 end

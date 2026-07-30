@@ -1,8 +1,5 @@
 { ... }: {
-  imports = [
-    ./jdtls
-    ./ts_ls
-  ];
+  imports = [ ./ts_ls ];
 
   programs.nixvim.plugins.lsp = {
     enable = true;

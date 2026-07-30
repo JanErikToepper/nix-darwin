@@ -60,11 +60,6 @@ in {
         action = "<cmd>lua vim.lsp.buf.hover({ border = \"single\" })<cr>";
       }
       {
-        mode = "n";
-        key = "<leader>c";
-        action = "<cmd>lua add_javadoc_comment()<cr>";
-      }
-      {
         mode = "n"; 
         key = "<leader>dk";
         action = "<cmd>lua vim.diagnostic.open_float()<cr>";
@@ -216,8 +211,68 @@ in {
       }
       {
         mode = "n";
-        key = "<leader>i"; 
+        key = "<leader>jc";
+        action = "<cmd>lua apply_code_action('Add Javadoc comment')<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>je"; 
+        action = "<cmd>lua apply_code_action('Generate hashCode()', true)<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>jg";
+        action = "<cmd>lua apply_code_action('Generate Getter for', true)<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>jG";
+        action = "<cmd>lua apply_code_action('Generate Getters')<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>ji"; 
         action = "<cmd>lua require('jdtls').organize_imports()<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>jm";
+        action = "<cmd>lua require('jdtls').extract_method()<cr>";
+      }
+      {
+        mode = "v";
+        key = "<leader>jm";
+        action = "<cmd>lua require('jdtls').extract_method(true)<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>jo";
+        action = "<cmd>lua apply_code_action('Sort Members for', true)<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>js";
+        action = "<cmd>lua apply_code_action('Generate Setter for', true)<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>jS";
+        action = "<cmd>lua apply_code_action('Generate Setters')<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>jt";
+        action = "<cmd>lua apply_code_action('Generate toString()', true)<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>jv";
+        action = "<cmd>lua require('jdtls').extract_variable()<cr>";
+      }
+      {
+        mode = "v";
+        key = "<leader>jv";
+        action = "<cmd>lua require('jdtls').extract_variable(true)<cr>";
       }
       {
         mode = "n"; 

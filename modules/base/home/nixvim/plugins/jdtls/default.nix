@@ -1,7 +1,7 @@
 { ... }: {
-  programs.nixvim.plugins.lsp.servers.jdtls = {
+  programs.nixvim.plugins.jdtls = {
     enable = true;
-    extraOptions = {
+    settings = {
       capabilities.__raw = ''
         (function()
           local capabilities = vim.lsp.protocol.make_client_capabilities()

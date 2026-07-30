@@ -5,7 +5,7 @@
       event = "BufNew";
     } 
     {
-      command = "silent lua pcall(function() vim.cmd('undojoin') end) vim.lsp.buf.format({ filter = function(client) return client.name == 'null-ls' end })"; 
+      command = "silent lua handle_buffer_write()"; 
       event = [
         "BufWritePre" 
         "BufLeave"

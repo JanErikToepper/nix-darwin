@@ -5,6 +5,7 @@
     ./codediff
     ./diffview
     ./gitsigns
+    ./jdtls
     ./lsp
     ./markview
     ./neogit
@@ -18,7 +19,6 @@
 
   programs.nixvim.plugins = {
     autoclose.enable = true; 
-    jdtls.enable = true;
     tmux-navigator.enable = true;
     ts-autotag.enable = true;
     web-devicons.enable = true;
