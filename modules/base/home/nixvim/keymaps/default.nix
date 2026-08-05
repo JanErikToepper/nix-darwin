@@ -127,7 +127,7 @@ in {
       {
         mode = "n";
         key = "<leader>fw";
-        action = "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>";
+        action = "<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>";
       }
       {
         mode = "n"; 
@@ -236,21 +236,6 @@ in {
       }
       {
         mode = "n";
-        key = "<leader>jm";
-        action = "<cmd>lua require('jdtls').extract_method()<cr>";
-      }
-      {
-        mode = "v";
-        key = "<leader>jm";
-        action = "<cmd>lua require('jdtls').extract_method(true)<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>jo";
-        action = "<cmd>lua apply_code_action('Sort Members for', true)<cr>";
-      }
-      {
-        mode = "n";
         key = "<leader>js";
         action = "<cmd>lua apply_code_action('Generate Setter for', true)<cr>";
       }
@@ -263,16 +248,6 @@ in {
         mode = "n";
         key = "<leader>jt";
         action = "<cmd>lua apply_code_action('Generate toString()', true)<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>jv";
-        action = "<cmd>lua require('jdtls').extract_variable()<cr>";
-      }
-      {
-        mode = "v";
-        key = "<leader>jv";
-        action = "<cmd>lua require('jdtls').extract_variable(true)<cr>";
       }
       {
         mode = "n"; 

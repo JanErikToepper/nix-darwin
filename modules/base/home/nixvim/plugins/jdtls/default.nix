@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   programs.nixvim.plugins.jdtls = {
     enable = true;
     settings = {
@@ -11,6 +11,9 @@
           return capabilities
         end)()
       '';
+      init_options = {
+        bundles.__raw = "require('spring_boot').java_extensions('${config.spring-boot-extension-path}/jars')";
+      };
     };
   };
 }

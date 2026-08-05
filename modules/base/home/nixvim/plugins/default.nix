@@ -13,6 +13,7 @@
     ./notify
     ./oil
     ./spectre
+    ./spring-boot
     ./telescope
     ./treesitter
   ];
