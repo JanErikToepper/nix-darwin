@@ -109,21 +109,3 @@ function _G.apply_code_action(title, has_open_end)
     apply = true,
   })
 end
-
-local function join_undo()
-  pcall(
-    function()
-      vim.cmd('undojoin')
-    end
-  )
-end
-
-function _G.handle_buffer_write()
-  join_undo()
-
-  vim.lsp.buf.format({
-    filter = function(client)
-      return client.name == 'null-ls'
-    end
-  })
-end
