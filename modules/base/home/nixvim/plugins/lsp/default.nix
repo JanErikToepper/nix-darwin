@@ -4,7 +4,7 @@
   programs.nixvim.plugins.lsp = {
     enable = true;
     servers = {
-      bashls.enable = true; 
+      bashls.enable = true;
       cssls.enable = true;
       diagnosticls.enable = true;
       dockerls.enable = true;
