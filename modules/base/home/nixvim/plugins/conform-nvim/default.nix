@@ -15,6 +15,7 @@
         html = [ "prettierd" ];
         nix = [ "nixfmt" ];
         lua = [ "stylua" ];
+        sh = [ "shfmt" ];
       };
 
       notify_no_formatters = false;

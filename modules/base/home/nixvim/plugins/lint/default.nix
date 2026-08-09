@@ -5,6 +5,7 @@
     lintersByFt = {
       java = [ "checkstyle" ];
       javascript = [ "eslint_d" ];
+      sh = [ "shellcheck" ];
     };
   };
 }
