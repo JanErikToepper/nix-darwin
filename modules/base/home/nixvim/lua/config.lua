@@ -105,10 +105,16 @@ function _G.continue_rebase()
 	require("neogit").action("rebase", "continue")()
 end
 
-function _G.apply_code_action(title, has_open_end)
+function _G.apply_code_action(title, allow_loose_matching)
 	vim.lsp.buf.code_action({
 		filter = function(x)
-			return string.match(x.title, "^" .. title .. (has_open_end and "" or "$"))
+			local pattern = "^" .. title .. "$"
+
+			if allow_loose_matching then
+				pattern = title
+			end
+
+			return string.match(x.title, pattern)
 		end,
 		apply = true,
 	})
@@ -125,6 +131,7 @@ function _G.handle_buffer_format()
 
 	require("conform").format({
 		bufnr = bufnr,
+		async = true,
 		undojoin = true,
 		lsp_format = "fallback",
 	})

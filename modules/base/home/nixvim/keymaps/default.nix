@@ -216,13 +216,13 @@ in
       }
       {
         mode = "n";
-        key = "<leader>jc";
-        action = "<cmd>lua apply_code_action('Add Javadoc comment')<cr>";
+        key = "<leader>i";
+        action = "<cmd>lua apply_code_action('import', true)<cr>";
       }
       {
         mode = "n";
-        key = "<leader>je";
-        action = "<cmd>lua apply_code_action('Generate hashCode()', true)<cr>";
+        key = "<leader>jc";
+        action = "<cmd>lua apply_code_action('Add Javadoc comment')<cr>";
       }
       {
         mode = "n";
@@ -248,11 +248,6 @@ in
         mode = "n";
         key = "<leader>jS";
         action = "<cmd>lua apply_code_action('Generate Setters')<cr>";
-      }
-      {
-        mode = "n";
-        key = "<leader>jt";
-        action = "<cmd>lua apply_code_action('Generate toString()', true)<cr>";
       }
       {
         mode = "n";
