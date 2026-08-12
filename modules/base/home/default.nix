@@ -8,6 +8,8 @@
     ./git
     ./launchd
     ./nixvim
+    ./ollama
+    ./opencode
     ./packages
     ./ripgrep
     ./scripts
@@ -17,7 +19,7 @@
     ./vim
     ./zoxide
     ./zsh
-  ];  
+  ];
 
   home.username = config.user;
 }

@@ -1,0 +1,22 @@
+{ ... }: {
+  programs.opencode = {
+    enable = true;
+    tui.theme = "catppuchin";
+    settings = {
+      provider = {
+        ollama = {
+          npm = "@ai-sdk/openai-compatible";
+          name = "Ollama";
+          options = {
+            baseURL = "http://localhost:11434/v1";
+          };
+          models = {
+            "qwen3.5" = {
+              name = "qwen3.5";
+            };
+          };
+        };
+      };
+    };
+  };
+}

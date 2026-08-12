@@ -1,5 +1,11 @@
 { ... }: {
   programs.nixvim.colorschemes = {
-    ayu.enable = true;
+    catppuccin = {
+      enable = true;
+      settings = {
+        flavour = "mocha";
+        integrations.notify = true;
+      };
+    };
   };
 }
