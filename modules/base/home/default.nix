@@ -8,8 +8,6 @@
     ./git
     ./launchd
     ./nixvim
-    ./ollama
-    ./opencode
     ./packages
     ./ripgrep
     ./scripts
