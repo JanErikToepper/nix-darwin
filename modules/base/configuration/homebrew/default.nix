@@ -1,6 +1,6 @@
 { ... }: {
   homebrew = {
-    enable = true; 
+    enable = true;
     onActivation = {
       autoUpdate = true;
       cleanup = "uninstall";
