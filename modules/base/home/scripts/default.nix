@@ -8,6 +8,7 @@
     ./push-nix-darwin-configuration
     ./spring-init
     ./stage-nix-darwin-configuration
+    ./wait-until-online
     ./watch
   ];
 
@@ -24,6 +25,7 @@
     push-nix-darwin-configuration
     spring-init
     stage-nix-darwin-configuration
+    wait-until-online
     watch
   ];
 }
