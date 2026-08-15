@@ -1,7 +1,5 @@
 { config, ... }: {
-  imports = [
-    ./firefox
-  ];
+  imports = [ ./firefox ];
 
   home = {
     username = config.user;

@@ -1,5 +1,8 @@
 { ... }: {
   homebrew = {
-    casks = [ "adobe-acrobat-reader" ];
+    casks = [
+      "adobe-acrobat-reader"
+      "steam"
+    ];
   };
 }
