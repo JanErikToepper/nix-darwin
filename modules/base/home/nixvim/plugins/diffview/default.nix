@@ -22,7 +22,7 @@ in
         show_help_hints = false;
         file_panel = {
           tree_options.folder_statuses = "never";
-          win_config.width = 50;
+          win_config.width = 75;
         };
         keymaps = {
           view = [

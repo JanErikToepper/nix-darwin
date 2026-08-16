@@ -5,6 +5,13 @@
       event = "BufNew";
     }
     {
+      command = "lua require('lint').try_lint()";
+      event = [
+        "BufEnter"
+        "TextChanged"
+      ];
+    }
+    {
       command = "lua handle_buffer_format()";
       event = [
         "BufWritePre"

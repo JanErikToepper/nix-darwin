@@ -6,6 +6,7 @@
     ./diffview
     ./gitsigns
     ./jdtls
+    ./lint
     ./lsp
     ./markview
     ./neogit

@@ -1,7 +1,7 @@
 { ... }:
 let
-  redrawStatusLine = "vim.cmd('redrawstatus!')";
-  stageAll = "cmd('git add --all')";
+  redrawStatusLine = "vim_cmd('redrawstatus!')";
+  stageAll = "vim_cmd('git add --all')";
 in
 {
   programs.nixvim = {
@@ -44,11 +44,6 @@ in
       {
         mode = "n";
         key = "gr";
-        action = "<cmd>lua vim.lsp.buf.rename()<cr>";
-      }
-      {
-        mode = "n";
-        key = "gR";
         action = "<cmd>lua require('telescope.builtin').lsp_references()<cr>";
       }
       {
@@ -117,7 +112,7 @@ in
       {
         mode = "n";
         key = "<leader>fq";
-        action = "<cmd>lua vim.cmd('cclose'); require('telescope.builtin').quickfix()<cr>";
+        action = "<cmd>lua vim_cmd('cclose'); require('telescope.builtin').quickfix()<cr>";
       }
       {
         mode = "n";
@@ -152,7 +147,7 @@ in
       {
         mode = "n";
         key = "<leader>gB";
-        action = "<cmd>lua cmd(\"git switch -\")<cr>";
+        action = "<cmd>lua vim_cmd(\"git switch -\")<cr>";
       }
       {
         mode = "n";
@@ -216,18 +211,23 @@ in
       }
       {
         mode = "n";
-        key = "<leader>i";
-        action = "<cmd>lua apply_code_action('import', true)<cr>";
-      }
-      {
-        mode = "n";
         key = "<leader>jc";
         action = "<cmd>lua apply_code_action('Add Javadoc comment')<cr>";
       }
       {
         mode = "n";
+        key = "<leader>je";
+        action = "<cmd>lua apply_code_action('Generate hashCode')<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>ji";
+        action = "<cmd>lua apply_code_action('Organize imports')<cr>";
+      }
+      {
+        mode = "n";
         key = "<leader>jg";
-        action = "<cmd>lua apply_code_action('Generate Getter for', true)<cr>";
+        action = "<cmd>lua apply_code_action('Generate Getter for')<cr>";
       }
       {
         mode = "n";
@@ -236,13 +236,8 @@ in
       }
       {
         mode = "n";
-        key = "<leader>ji";
-        action = "<cmd>lua require('jdtls').organize_imports()<cr>";
-      }
-      {
-        mode = "n";
         key = "<leader>js";
-        action = "<cmd>lua apply_code_action('Generate Setter for', true)<cr>";
+        action = "<cmd>lua apply_code_action('Generate Setter for')<cr>";
       }
       {
         mode = "n";
@@ -251,8 +246,13 @@ in
       }
       {
         mode = "n";
+        key = "<leader>jt";
+        action = "<cmd>lua apply_code_action('Generate toString')<cr>";
+      }
+      {
+        mode = "n";
         key = "<leader>l";
-        action = "<cmd>e!<cr>";
+        action = "<cmd>e<cr>";
       }
       {
         mode = "n";
@@ -278,6 +278,11 @@ in
         mode = "v";
         key = "<leader>q";
         action = "<esc><cmd>'<,'> normal! @q<cr>";
+      }
+      {
+        mode = "n";
+        key = "<leader>R";
+        action = "<cmd>lua vim.lsp.buf.rename()<cr>";
       }
       {
         mode = "n";
@@ -352,12 +357,12 @@ in
       {
         mode = "n";
         key = "<leader>xh";
-        action = "<cmd>lua cmd(\"git add --all; git reset --hard\")<cr>";
+        action = "<cmd>lua vim_cmd(\"git add --all; git reset --hard\")<cr>";
       }
       {
         mode = "n";
         key = "<leader>xs";
-        action = "<cmd>lua cmd(\"git reset HEAD~1\")<cr>";
+        action = "<cmd>lua vim_cmd(\"git reset HEAD~1\")<cr>";
       }
     ];
   };

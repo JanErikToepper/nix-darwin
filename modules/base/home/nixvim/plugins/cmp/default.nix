@@ -1,6 +1,6 @@
 { ... }: {
   programs.nixvim.plugins.cmp = {
-    enable = true; 
+    enable = true;
     settings = {
       mapping = {
         "<cr>" = "cmp.mapping.confirm({ select = true })";
@@ -8,14 +8,13 @@
         "<c-p>" = "cmp.mapping.select_prev_item()";
         "<c-d>" = "cmp.mapping.scroll_docs(5)";
         "<c-u>" = "cmp.mapping.scroll_docs(-5)";
-      }; 
-      preselect = "cmp.PreselectMode.Item";
+      };
       sources = [
         {
-          name = "nvim_lsp"; 
-        } 
+          name = "nvim_lsp";
+        }
         {
-          name = "path"; 
+          name = "path";
         }
       ];
     };

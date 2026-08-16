@@ -1,10 +1,10 @@
 { config, ... }: {
   programs.nixvim.diagnostic.settings = {
-    virtual_text.spacing = 1;
-    signs = false; 
+    virtual_text.spacing = 2;
+    signs = false;
     float = {
       border = "single";
-      scope = "c"; 
+      scope = "c";
       header = "";
       source = false;
       format = config.lib.nixvim.mkRaw ''

@@ -1,18 +1,18 @@
 { ... }: {
   programs.nixvim.plugins.gitsigns = {
-    enable = true; 
+    enable = true;
     settings = {
       numhl = true;
       diff_opts = {
-        algorithm = "histogram"; 
+        algorithm = "histogram";
         internal = true;
-      }; 
+      };
       signs = {
-        add.text = "┃"; 
-        change.text = "┃"; 
-        changedelete.text = "┃"; 
-        delete.text = "┃"; 
-        topdelete.text = "┃"; 
+        add.text = "┃";
+        change.text = "┃";
+        changedelete.text = "┃";
+        delete.text = "┃";
+        topdelete.text = "┃";
       };
     };
   };

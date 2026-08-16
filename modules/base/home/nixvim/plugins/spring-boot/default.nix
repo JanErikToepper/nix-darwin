@@ -13,7 +13,6 @@ let
   spring-boot-extension-path = "${spring-boot-extension}/share/vscode/extensions/vmware.vscode-spring-boot";
 in
 {
-
   config.programs.nixvim.plugins = {
     spring-boot = {
       enable = true;

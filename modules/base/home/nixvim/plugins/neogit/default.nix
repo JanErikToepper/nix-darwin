@@ -22,9 +22,6 @@ in
       console_timeout = 5000;
       commit_editor.show_staged_diff = false;
       rebase_editor.kind = "tab";
-      integrations = {
-        telescope = true;
-      };
     };
   };
 }

@@ -1,7 +1,7 @@
 { ... }: {
   programs.nixvim.plugins = {
     codediff = {
-      enable = true;
+      enable = false;
       settings = {
         diff = {
           ignore_trim_whitespaces = true;

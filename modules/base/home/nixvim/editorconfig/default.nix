@@ -1,9 +1,9 @@
 { ... }: {
   editorconfig = {
-    enable = true; 
+    enable = true;
     settings = {
       "*" = {
-        charset = "utf-8"; 
+        charset = "utf-8";
         end_of_line = "lf";
         indent_size = 2;
         indent_style = "space";

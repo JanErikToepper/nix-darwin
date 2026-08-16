@@ -1,6 +1,7 @@
-{ ... } @ inputs: { 
+{ ... }@inputs:
+{
   imports = [
-    inputs.nixvim.homeModules.nixvim  
+    inputs.nixvim.homeModules.nixvim
     ./autocmd
     ./colorschemes
     ./diagnostics
@@ -12,10 +13,10 @@
   ];
 
   programs.nixvim = {
-    enable = true; 
+    enable = true;
 
     dependencies = {
-      tree-sitter.enable = true; 
+      tree-sitter.enable = true;
       gcc.enable = true;
     };
   };
