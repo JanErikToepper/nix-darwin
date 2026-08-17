@@ -1,4 +1,6 @@
 { config, pkgs, ... }: {
+  home.packages = with pkgs; [ desktoppr ];
+
   launchd = {
     enable = true;
     agents = {

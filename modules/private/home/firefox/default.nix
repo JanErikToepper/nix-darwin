@@ -1,12 +1,16 @@
-{ ... }: let
+{ ... }:
+let
   outlookUrl = "https://outlook.live.com/mail/0/";
-in {
+in
+{
   programs.firefox = {
     policies = {
-      Handler.schemes.mailTo.handlers = [{
-        name = "Outlook";
-        urlTemplate = outlookUrl;
-      }];
+      Handler.schemes.mailTo.handlers = [
+        {
+          name = "Outlook";
+          urlTemplate = outlookUrl;
+        }
+      ];
     };
 
     profiles.toepper.bookmarks.settings = [
@@ -17,7 +21,7 @@ in {
       {
         name = "GitHub";
         url = "https://github.com/";
-      }   
+      }
     ];
   };
 }

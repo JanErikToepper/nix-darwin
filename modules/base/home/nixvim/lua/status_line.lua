@@ -1,11 +1,19 @@
 function _G.get_branch_name()
-	local branch = vim_system("git rev-parse --abbrev-ref HEAD 2>/dev/null")
-	local commit = vim_system("git log -1 --pretty=%B HEAD 2>/dev/null")
+	local branch = io.popen("git rev-parse --abbrev-ref HEAD 2>/dev/null")
+	local commit = io.popen("git log -1 --pretty=%B HEAD 2>/dev/null")
 
-	if branch then
-		return string.format("[%s] | %s", branch, commit)
-	else
-		return ""
+	if branch and commit then
+		local branch_name = branch:read("*l")
+		local commit_name = commit:read("*l")
+
+		branch:close()
+		commit:close()
+
+		if branch_name then
+			return string.format("[%s] | %s", branch_name, commit_name)
+		else
+			return ""
+		end
 	end
 end
 

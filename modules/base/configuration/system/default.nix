@@ -1,6 +1,6 @@
 { config, ... }: {
   power.sleep.display = "never";
-  
+
   system = {
     primaryUser = config.user;
     keyboard = {
@@ -15,17 +15,17 @@
     };
     defaults = {
       dock = {
-        autohide = true; 
+        autohide = true;
         autohide-delay = 0.0;
         autohide-time-modifier = 0.0;
-      }; 
+      };
       trackpad = {
         TrackpadPinch = true;
         ActuateDetents = false;
         TrackpadRightClick = true;
       };
       finder = {
-        ShowPathbar = true; 
+        ShowPathbar = true;
         CreateDesktop = false;
         NewWindowTarget = "Desktop";
         _FXSortFoldersFirst = true;
@@ -36,11 +36,11 @@
         FXEnableExtensionChangeWarning = false;
       };
       screencapture = {
-        target = "clipboard"; 
+        target = "clipboard";
         disable-shadow = true;
       };
       NSGlobalDomain = {
-        KeyRepeat = 2; 
+        KeyRepeat = 2;
         InitialKeyRepeat = 15;
         AppleShowAllFiles = true;
         AppleShowScrollBars = "Always";
@@ -61,7 +61,7 @@
         _HIHideMenuBar = true;
       };
       loginwindow = {
-        GuestEnabled = false; 
+        GuestEnabled = false;
         autoLoginUser = "toepper";
         RestartDisabled = true;
         ShutDownDisabled = true;
@@ -71,28 +71,20 @@
         PowerOffDisabledWhileLoggedIn = true;
       };
       controlcenter = {
-        BatteryShowPercentage = true; 
+        BatteryShowPercentage = true;
       };
       ".GlobalPreferences" = {
         "com.apple.mouse.scaling" = 1.0;
       };
       SoftwareUpdate = {
-        AutomaticallyInstallMacOSUpdates = true; 
+        AutomaticallyInstallMacOSUpdates = true;
       };
       spaces.spans-displays = false;
       screensaver = {
-        askForPassword = true; 
+        askForPassword = true;
         askForPasswordDelay = 0;
       };
       WindowManager.StandardHideWidgets = true;
-    };
-    activationScripts = {
-      disableLoginItems = {
-        enable = true;
-        text = ''
-          osascript -e 'tell application "System Events" to set hidden of every login item to true'
-        '';
-      }; 
     };
   };
 }

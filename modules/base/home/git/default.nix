@@ -2,15 +2,12 @@
   programs.git = {
     enable = true;
     ignores = [
-      ".devenv*" 
+      ".devenv*"
       "devenv*"
       ".env"
       ".hurl/"
       ".watch/"
-      "build/"
-      "dist/"
-      "node_modules/"
-    ]; 
+    ];
     settings = {
       adivce.detachedHead = false;
       branch.sort = "~committerdate";

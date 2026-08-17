@@ -31,7 +31,12 @@
           preview.timeout = 1000;
           file_ignore_patterns = [
             "%.git%/"
-            "package-lock%.json"
+            "%.devenv*"
+            "devenv*"
+            "%.env"
+            "%.hurl%/"
+            "%.watch%/"
+            "target%/"
           ];
         };
         pickers.git_branches = {

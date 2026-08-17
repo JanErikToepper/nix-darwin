@@ -1,30 +1,34 @@
 #!/usr/bin/env bash
 
-COMMIT_MSG_FILE=$1
-COMMIT_SOURCE=$2
-SHA1=$3
+function main() {
+  local commit_message_file="$1"
 
-IS_AMEND_COMMAND=$(ps -ocommand= -p $PPID | grep -e '--amend');
+  local is_amend_command
+  is_amend_command="$(ps -ocommand= -p $PPID | grep -e '--amend')"
 
-if [[ -n "$IS_AMEND_COMMAND" ]]; then
-  exit 0;
-fi
+  if [[ -n "$is_amend_command" ]]; then
+    exit 0
+  fi
 
-branch=$(git rev-parse --abbrev-ref HEAD)
+  local branch
+  branch="$(git rev-parse --abbrev-ref HEAD)"
 
-[[ "$branch" =~ ^([a-z]+)/([A-Z]+-[0-9]+)-([a-zA-Z0-9-]+) ]]
+  [[ "$branch" =~ ^([a-z]+)/([A-Z]+-[0-9]+)-([a-zA-Z0-9-]+) ]]
 
-classification="${BASH_REMATCH[1]}"
-ticket_id="${BASH_REMATCH[2]}"
-commit_message=$(echo "${BASH_REMATCH[3]}" | tr '-' ' ');
+  local classification
+  classification="${BASH_REMATCH[1]}"
+  local ticket_id
+  ticket_id="${BASH_REMATCH[2]}"
+  local commit_message
+  commit_message=$(echo "${BASH_REMATCH[3]}" | tr '-' ' ')
 
-if [[ -z "$classification" || -z "$ticket_id" ]]; then
-  exit 0;
-fi
+  if [[ -z "$classification" || -z "$ticket_id" ]]; then
+    exit 0
+  fi
 
-declare classification_abbreviation
+  declare classification_abbreviation
 
-case "$classification" in
+  case "$classification" in
   "feature")
     classification_abbreviation="F"
     ;;
@@ -33,6 +37,10 @@ case "$classification" in
     ;;
   *)
     classification_abbreviation="C"
-esac
+    ;;
+  esac
 
-echo "[$classification_abbreviation] $ticket_id: $commit_message" > "$COMMIT_MSG_FILE"
+  echo "[$classification_abbreviation] $ticket_id: $commit_message" >"$commit_message_file"
+}
+
+main "$@"

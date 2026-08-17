@@ -1,13 +1,13 @@
 function main() {
-  stage-nix-darwin-configuration;
+  stage-nix-darwin-configuration
 
   if ! git -C /etc/nix-darwin diff-index --quiet HEAD; then
-    local timestamp;
-    timestamp="$(date +"%Y-%m-%d - %H:%M:%S")";
+    local timestamp
+    timestamp="$(date +"%Y-%m-%d - %H:%M:%S")"
 
-    git -C /etc/nix-darwin commit -m "[$MACHINE] $timestamp";
-    git -C /etc/nix-darwin push;
+    git -C /etc/nix-darwin commit -m "[$MACHINE] $timestamp"
+    git -C /etc/nix-darwin push
   fi
 }
 
-main;
+main

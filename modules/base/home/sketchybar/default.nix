@@ -1,16 +1,30 @@
-{ pkgs, config, ... }: let
-  sketchybarPlugins = "${config.xdg.configHome}/sketchybar/plugins"; 
-in {
-  home.file = builtins.listToAttrs (map (plugin: {
-    name = "${sketchybarPlugins}/${plugin}.sh"; 
-    value = {
-      source = ./plugins + "/${plugin}.sh"; 
-      executable = true;
-    };
-  }) [ "colors" "aerospace" "update_aerospace_workspace" "audio" "battery" "clock" ]);
+{ pkgs, config, ... }:
+let
+  sketchybarPlugins = "${config.xdg.configHome}/sketchybar/plugins";
+in
+{
+  home.file = builtins.listToAttrs (
+    map
+      (plugin: {
+        name = "${sketchybarPlugins}/${plugin}.sh";
+        value = {
+          source = ./plugins + "/${plugin}.sh";
+          executable = true;
+        };
+      })
+      [
+        "colors"
+        "aerospace"
+        "update_aerospace_workspace"
+        "audio"
+        "battery"
+        "clock"
+      ]
+  );
 
   programs.sketchybar = {
-    enable = true; 
+    enable = true;
+    service.errorLogFile = "/Users/janeriktoepper/error.log";
     config = ''
       source "${sketchybarPlugins}/colors.sh";
 

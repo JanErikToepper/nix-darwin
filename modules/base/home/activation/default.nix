@@ -1,7 +1,11 @@
 { lib, pkgs, ... }: {
-  home.activation = {
-    set-default-apps = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ${pkgs.defaultbrowser}/bin/defaultbrowser firefox
-    '';
+  home = {
+    packages = with pkgs; [ defaultbrowser ];
+
+    activation = {
+      set-default-apps = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        ${pkgs.defaultbrowser}/bin/defaultbrowser firefox
+      '';
+    };
   };
 }

@@ -1,24 +1,24 @@
 { ... }: {
   programs.firefox = {
-    enable = true; 
+    enable = true;
     languagePacks = [ "en-US" ];
     policies = {
       AppAutoUpdate = false;
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
       DisableTelemetry = true;
-      DisplayBookmarksToolbar = "never"; 
+      DisplayBookmarksToolbar = "never";
       DisplayMenuBar = "never";
       DontCheckDefaultBrowser = true;
       EnableTrackingProtection = {
         Value = true;
         Locked = true;
         Cryptomining = true;
-        Fingerprinting = true; 
+        Fingerprinting = true;
       };
       Extensions = {
-        Install = [ "https://addons.mozilla.org/firefox/downloads/file/4717567/vimium_ff-2.4.2.xpi" ]; 
-        Locked = [ "https://addons.mozilla.org/firefox/downloads/file/4717567/vimium_ff-2.4.2.xpi" ]; 
+        Install = [ "https://addons.mozilla.org/firefox/downloads/file/4717567/vimium_ff-2.4.2.xpi" ];
+        Locked = [ "https://addons.mozilla.org/firefox/downloads/file/4717567/vimium_ff-2.4.2.xpi" ];
       };
       ExtensionUpdate = false;
       FirefoxHome = {
@@ -31,21 +31,21 @@
         SponsoredPocket = false;
         SponsoredStories = false;
         Snippets = false;
-        Locked = true; 
+        Locked = true;
       };
       FirefoxSuggest = {
         WebSuggestions = false;
-        SponsoredSuggestions = false; 
+        SponsoredSuggestions = false;
         ImproveSuggest = false;
         Locked = true;
       };
       Handler = {
         schemes = {
           mailTo = {
-            action = "useHelperApp"; 
+            action = "useHelperApp";
             ask = false;
-          }; 
-        }; 
+          };
+        };
       };
       Homepage = {
         URL = "https://vimium.github.io/new-tab/";
@@ -63,20 +63,20 @@
       };
       PDFjs = {
         Enabled = true;
-        EnabledPermissions = true; 
+        EnabledPermissions = true;
       };
       PictureInPicture = {
         Enabled = false;
-        Locked = true; 
+        Locked = true;
       };
       PopupBlocking = {
         Default = false;
-        Locked = true; 
+        Locked = true;
       };
       PostQuantumKeyAgreementEnabled = true;
       PromptForDownloadLocation = false;
       SearchEngines = {
-        PreventInstalls = true; 
+        PreventInstalls = true;
       };
       ShowHomeButton = false;
       SkipTermsOfUse = true;
@@ -88,10 +88,10 @@
         SkipOnboarding = false;
         MoreFromMozilla = false;
         FirefoxLabs = false;
-        Locked = true; 
+        Locked = true;
       };
     };
-    
+
     profiles.toepper = {
       settings = {
         "browser.startup.homepage" = "https://vimium.github.io/new-tab/";
@@ -99,10 +99,10 @@
       };
 
       bookmarks = {
-        force = true; 
+        force = true;
         settings = [
           {
-            name = "Bash"; 
+            name = "Bash";
             url = "https://www.gnu.org/software/bash/manual/bash.html";
           }
           {
@@ -110,11 +110,11 @@
             url = "https://devenv.sh/";
           }
           {
-            name = "Docker"; 
+            name = "Docker";
             url = "https://docs.docker.com/";
           }
           {
-            name = "Git"; 
+            name = "Git";
             url = "https://git-scm.com/docs";
           }
           {
@@ -126,13 +126,17 @@
             url = "http://localhost:8080/";
           }
           {
+            name = "Maven Repository";
+            url = "https://mvnrepository.com/";
+          }
+          {
             name = "Lua";
             url = "https://www.lua.org/manual/5.5/";
           }
           {
-            name = "Nix"; 
+            name = "Nix";
             url = "https://nix.dev/manual/nix/2.34/";
-          } 
+          }
           {
             name = "nginx";
             url = "https://nginx.org/en/docs/";
@@ -146,7 +150,7 @@
             url = "https://docs.spring.io/spring-boot/index.html";
           }
         ];
-      }; 
+      };
     };
   };
 }

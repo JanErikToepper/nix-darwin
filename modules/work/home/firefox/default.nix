@@ -1,16 +1,16 @@
-{ ... }: let
+{ ... }:
+let
   outlookUrl = "https://outlook.cloud.microsoft/";
-in {
+in
+{
   programs.firefox = {
     policies = {
-      Extensions = {
-        Install = [ "https://addons.mozilla.org/firefox/downloads/file/4845693/angular_devtools-1.16.0.xpi" ]; 
-        Locked = [ "https://addons.mozilla.org/firefox/downloads/file/4845693/angular_devtools-1.16.0.xpi" ]; 
-      };
-      Handler.schemes.mailTo.handlers = [{
-        name = "Outlook";
-        urlTemplate = outlookUrl;
-      }];
+      Handler.schemes.mailTo.handlers = [
+        {
+          name = "Outlook";
+          urlTemplate = outlookUrl;
+        }
+      ];
       Permissions = {
         Notifications = {
           Allow = [

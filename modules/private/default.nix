@@ -1,9 +1,11 @@
-{ ... }: let
+{ ... }:
+let
   customConfig = {
     user = "toepper";
     machine = "private";
   };
-in {
+in
+{
   imports = [ ./configuration ];
 
   config = {

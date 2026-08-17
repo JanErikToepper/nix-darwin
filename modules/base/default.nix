@@ -1,13 +1,18 @@
-{ config, lib, ... }: let
+{ config, lib, ... }:
+let
   customOptions = {
     user = lib.mkOption {
-      type = lib.types.str;  
+      type = lib.types.str;
     };
     machine = lib.mkOption {
-      type = lib.types.enum [ "private" "work" ]; 
+      type = lib.types.enum [
+        "private"
+        "work"
+      ];
     };
   };
-in {
+in
+{
   imports = [ ./configuration ];
 
   options = customOptions;

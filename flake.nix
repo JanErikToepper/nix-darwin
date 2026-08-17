@@ -11,25 +11,40 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim.url = "github:nix-community/nixvim"; 
+    nixvim.url = "github:nix-community/nixvim";
   };
 
-  outputs = { nix-darwin, home-manager, nixvim, ... }: {
-    darwinConfigurations = builtins.listToAttrs (map (module: {
-      name = module;
-      value = nix-darwin.lib.darwinSystem {
-        modules = [
-          ./modules/base
-          (./modules + "/${module}")
-          home-manager.darwinModules.home-manager {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = { inherit nixvim ;};
+  outputs =
+    {
+      nix-darwin,
+      home-manager,
+      nixvim,
+      ...
+    }:
+    {
+      darwinConfigurations = builtins.listToAttrs (
+        map
+          (module: {
+            name = module;
+            value = nix-darwin.lib.darwinSystem {
+              modules = [
+                ./modules/base
+                (./modules + "/${module}")
+                home-manager.darwinModules.home-manager
+                {
+                  home-manager = {
+                    useGlobalPkgs = true;
+                    useUserPackages = true;
+                    extraSpecialArgs = { inherit nixvim; };
+                  };
+                }
+              ];
             };
-          }
-        ];
-      };
-    }) [ "private" "work" ]);
-  };
+          })
+          [
+            "private"
+            "work"
+          ]
+      );
+    };
 }

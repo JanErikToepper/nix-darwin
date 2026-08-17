@@ -122,6 +122,19 @@ in
           run = "balance-sizes";
         }
         {
+          "if".app-id = firefox;
+          "if".workspace = "5";
+          run = "balance-sizes";
+        }
+        {
+          "if".app-id = firefox;
+          run = "move-node-to-workspace --focus-follows-window 1";
+        }
+        {
+          "if".app-id = figma;
+          run = "move-node-to-workspace --focus-follows-window 7";
+        }
+        {
           "if".app-id = bitwarden;
           run = "move-node-to-workspace --focus-follows-window 8";
         }
@@ -132,19 +145,6 @@ in
         {
           "if".app-id = docker;
           run = "move-node-to-workspace 9";
-        }
-        {
-          "if".app-id = figma;
-          run = "move-node-to-workspace --focus-follows-window 7";
-        }
-        {
-          "if".app-id = firefox;
-          "if".workspace = "5";
-          run = "balance-sizes";
-        }
-        {
-          "if".app-id = firefox;
-          run = "move-node-to-workspace --focus-follows-window 1";
         }
         {
           "if".app-id = alacritty;

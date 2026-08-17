@@ -1,10 +1,12 @@
-{ ... }: let
+{ ... }:
+let
   bitwarden = "com.bitwarden.desktop";
   teams = "com.microsoft.teams2";
-in {
+in
+{
   programs.aerospace.settings = {
     mode.main.binding = {
-      ctrl-cmd-t = "exec-and-forget open -b ${teams}";
+      ctrl-cmd-c = "exec-and-forget open -b ${teams}";
     };
 
     on-window-detected = [
