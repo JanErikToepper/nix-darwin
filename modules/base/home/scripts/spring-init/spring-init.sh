@@ -16,7 +16,7 @@ function main() {
     exit 1
   fi
 
-  spring init -a "$ARTIFACT_ID" --build "maven" -g "$GROUP_ID" "$ARTIFACT_ID"
+  spring init --artifact-id "$ARTIFACT_ID" --build "maven" --dependencies web --group-id "$GROUP_ID" "$ARTIFACT_ID"
 }
 
 main "$@"

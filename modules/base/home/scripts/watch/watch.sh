@@ -55,8 +55,11 @@ function main() {
   export DIRECTORY_ID
   export QUERY
 
-  fd . "$FILES_TO_WATCH" | entr -c -r bash -c 'handle_changes "$@"' _ "$@"
+  while true; do
+    fd . "$FILES_TO_WATCH" | entr -c -r bash -c 'handle_changes "$@"' _ "$@"
 
+    sleep 1
+  done
 }
 
 main "$@"

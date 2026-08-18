@@ -21,7 +21,7 @@ function _G.continue_rebase()
 		return
 	end
 
-	vim_cmd("git add --all")
+	system_cmd("git add --all")
 
 	require("neogit").action("rebase", "continue")()
 end

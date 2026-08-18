@@ -1,7 +1,7 @@
 { ... }:
 let
   redrawStatusLine = "vim_cmd('redrawstatus!')";
-  stageAll = "vim_cmd('git add --all')";
+  stageAll = "system_cmd('git add --all')";
 in
 {
   programs.nixvim = {
@@ -83,6 +83,11 @@ in
       }
       {
         mode = "n";
+        key = "<leader>fb";
+        action = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<cr>";
+      }
+      {
+        mode = "n";
         key = "<leader>fc";
         action = "<cmd>lua require('telescope.builtin').git_status()<cr>";
       }
@@ -147,7 +152,7 @@ in
       {
         mode = "n";
         key = "<leader>gB";
-        action = "<cmd>lua vim_cmd(\"git switch -\")<cr>";
+        action = "<cmd>lua system_cmd(\"git switch -\")<cr>";
       }
       {
         mode = "n";
@@ -357,12 +362,12 @@ in
       {
         mode = "n";
         key = "<leader>xh";
-        action = "<cmd>lua vim_cmd(\"git add --all; git reset --hard\")<cr>";
+        action = "<cmd>lua system_cmd(\"git add --all; git reset --hard\")<cr>";
       }
       {
         mode = "n";
         key = "<leader>xs";
-        action = "<cmd>lua vim_cmd(\"git reset HEAD~1\")<cr>";
+        action = "<cmd>lua system_cmd(\"git reset HEAD~1\")<cr>";
       }
     ];
   };

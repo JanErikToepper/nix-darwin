@@ -2,13 +2,29 @@ function _G.vim_cmd(command)
 	vim.cmd(string.format('silent execute "!%s" | redrawstatus!', command))
 end
 
-function _G.format()
-	vim_cmd("e")
+function _G.system_cmd(command)
+	local result_buffer = io.popen(command)
 
+	if not result_buffer then
+		return
+	end
+
+	local result = result_buffer:read()
+
+	result_buffer:close()
+
+	return result
+end
+
+function _G.format()
 	require("conform").format({
 		async = true,
 		lsp_format = "fallback",
 	})
+
+	pcall(function()
+		vim_cmd("e")
+	end)
 end
 
 local function register_format_autocmd()
