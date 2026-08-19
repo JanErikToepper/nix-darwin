@@ -1,7 +1,7 @@
 { ... }: {
   programs.alacritty = {
     enable = true;
-    theme = "catppuccin_mocha";
+    theme = "ayu_dark";
     settings.font.normal = {
       family = "Hack Nerd Font";
       style = "Regular";

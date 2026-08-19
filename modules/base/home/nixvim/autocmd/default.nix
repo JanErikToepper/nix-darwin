@@ -1,10 +1,6 @@
 { ... }: {
   programs.nixvim.autoCmd = [
     {
-      command = "lua handle_open_buffers()";
-      event = "BufNew";
-    }
-    {
       command = "lua require('lint').try_lint()";
       event = [
         "BufEnter"
@@ -12,7 +8,10 @@
       ];
     }
     {
-      command = "lua handle_buffer_format()";
+      callback.__raw = ''
+        function(args)
+          handle_buffer_write(args.buf)
+        end'';
       event = [
         "BufWritePre"
         "BufLeave"

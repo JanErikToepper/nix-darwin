@@ -1,5 +1,5 @@
 function _G.vim_cmd(command)
-	vim.cmd(string.format('silent execute "!%s" | redrawstatus!', command))
+	vim.cmd(string.format("silent! %s", command))
 end
 
 function _G.system_cmd(command)
@@ -16,14 +16,14 @@ function _G.system_cmd(command)
 	return result
 end
 
-function _G.format()
+function _G.format_and_write(bufnr)
 	require("conform").format({
-		async = true,
+		bufnr = bufnr,
 		lsp_format = "fallback",
-	})
-
-	pcall(function()
-		vim_cmd("e")
+	}, function()
+		vim.api.nvim_buf_call(bufnr, function()
+			vim_cmd("noautocmd update")
+		end)
 	end)
 end
 
@@ -31,9 +31,11 @@ local function register_format_autocmd()
 	local bufnr = vim.api.nvim_get_current_buf()
 
 	vim.api.nvim_create_autocmd("TextChanged", {
-		buffer = bufnr,
+		buf = bufnr,
 		once = true,
-		callback = format,
+		callback = function()
+			format_and_write(bufnr)
+		end,
 	})
 end
 

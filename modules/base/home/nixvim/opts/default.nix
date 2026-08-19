@@ -2,12 +2,13 @@
   programs.nixvim.opts = {
     autoindent = true;
     autoread = true;
-    background = "dark"; 
+    background = "dark";
     backup = false;
     clipboard = "unnamedplus";
     complete = "";
     endofline = false;
     expandtab = true;
+    hidden = true;
     hlsearch = false;
     ignorecase = true;
     incsearch = true;

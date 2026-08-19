@@ -1,6 +1,5 @@
 { ... }: {
   imports = [
-    ./auto-save
     ./cmp
     ./conform-nvim
     ./diffview
