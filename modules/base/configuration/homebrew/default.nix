@@ -5,6 +5,7 @@
       autoUpdate = true;
       cleanup = "uninstall";
     };
+    greedyCasks = true;
     brews = [ "docker" ];
     casks = [
       "bitwarden"

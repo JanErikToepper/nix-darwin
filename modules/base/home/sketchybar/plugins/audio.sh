@@ -14,7 +14,12 @@ function main() {
     LABEL="-"
   else
     ICON="󰕾"
-    LABEL="${VOLUME:-#}%"
+
+    if [[ -z "$VOLUME" ]]; then
+      LABEL="--"
+    else
+      LABEL="${VOLUME}%"
+    fi
   fi
 
   sketchybar --set audio \

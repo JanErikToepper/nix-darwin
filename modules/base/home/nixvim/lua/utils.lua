@@ -6,14 +6,18 @@ function _G.system_cmd(command)
 	local result_buffer = io.popen(command)
 
 	if not result_buffer then
-		return
+		return ""
 	end
 
 	local result = result_buffer:read()
 
 	result_buffer:close()
 
-	return result
+	if not result then
+		return ""
+	end
+
+	return vim.fn.trim(result)
 end
 
 function _G.format_and_write(bufnr)

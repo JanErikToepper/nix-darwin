@@ -1,5 +1,5 @@
 function _G.switch_branch()
-	local is_branch_dirty = vim.fn.trim(vim.fn.system("git status --porcelain")) ~= ""
+	local is_branch_dirty = system_cmd("git status --porcelain") ~= ""
 
 	if is_branch_dirty then
 		vim.notify("Branch is dirty", "warn", { title = "Neogit" })
@@ -11,9 +11,7 @@ function _G.switch_branch()
 end
 
 function _G.continue_rebase()
-	vim.fn.system({ "git", "grep", "--quiet", "=======" })
-
-	local has_open_conflicts = vim.v.shell_error == 0
+	local has_open_conflicts = system_cmd("git grep '>>>>>>>'") ~= ""
 
 	if has_open_conflicts then
 		vim.notify("Open merge conflicts", "warn", { title = "Neogit" })
