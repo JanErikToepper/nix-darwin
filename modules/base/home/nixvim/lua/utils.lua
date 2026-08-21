@@ -6,7 +6,7 @@ function _G.system_cmd(command)
 	local result_buffer = io.popen(command)
 
 	if not result_buffer then
-		return ""
+		return nil
 	end
 
 	local result = result_buffer:read()
@@ -14,7 +14,7 @@ function _G.system_cmd(command)
 	result_buffer:close()
 
 	if not result then
-		return ""
+		return nil
 	end
 
 	return vim.fn.trim(result)
@@ -31,33 +31,20 @@ function _G.format_and_write(bufnr)
 	end)
 end
 
-local function register_format_autocmd()
-	local bufnr = vim.api.nvim_get_current_buf()
+local function is_lsp_attached(lsp)
+	local clients = vim.lsp.get_clients({ bufnr = 0, name = lsp })
 
-	vim.api.nvim_create_autocmd("TextChanged", {
-		buf = bufnr,
-		once = true,
-		callback = function()
-			format_and_write(bufnr)
-		end,
-	})
+	return not vim.tbl_isempty(clients)
 end
 
 function _G.apply_code_action(title)
-	register_format_autocmd()
+	code_action_sync(title)
 
-	local found_action = false
+	local bufnr = vim.api.nvim_get_current_buf()
 
-	vim.lsp.buf.code_action({
-		apply = true,
-		filter = function(command)
-			if found_action then
-				return false
-			end
+	if is_lsp_attached("jdtls") then
+		code_action_sync("Sort Members for")
+	end
 
-			found_action = string.match(command.title, title)
-
-			return found_action
-		end,
-	})
+	format_and_write(bufnr)
 end

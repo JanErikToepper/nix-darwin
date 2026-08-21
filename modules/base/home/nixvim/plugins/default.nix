@@ -7,6 +7,7 @@
     ./jdtls
     ./lint
     ./lsp
+    ./lsp-file-operations
     ./markview
     ./neogit
     ./notify
