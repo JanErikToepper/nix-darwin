@@ -7,5 +7,9 @@ function _G.handle_buffer_write(bufnr)
 		return
 	end
 
+	if is_lsp_attached("jdtls") then
+		code_action_sync("Sort Members for", bufnr)
+	end
+
 	format_and_write(bufnr)
 end

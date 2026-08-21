@@ -31,7 +31,7 @@ function _G.format_and_write(bufnr)
 	end)
 end
 
-local function is_lsp_attached(lsp)
+function _G.is_lsp_attached(lsp)
 	local clients = vim.lsp.get_clients({ bufnr = 0, name = lsp })
 
 	return not vim.tbl_isempty(clients)
