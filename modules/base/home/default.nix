@@ -1,6 +1,5 @@
 { config, ... }: {
   imports = [
-    ./activation
     ./aerospace
     ./alacritty
     ./fd
@@ -8,6 +7,7 @@
     ./git
     ./launchd
     ./nixvim
+    ./ollama
     ./packages
     ./ripgrep
     ./scripts

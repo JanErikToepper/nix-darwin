@@ -3,7 +3,7 @@ function _G.code_action_sync(title, _bufnr)
 
 	local timeout_ms = 10000
 
-	local line = vim.api.nvim_win_get_cursor(0)[1] - 1
+	local line = vim.api.nvim_buf_get_mark(bufnr, '"')[1]
 
 	local nvim_diagnostics = vim.diagnostic.get(bufnr, { lnum = line })
 	local lsp_diagnostics = {}

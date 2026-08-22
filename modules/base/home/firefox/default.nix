@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, lib, ... }: {
   programs.firefox = {
     enable = true;
     languagePacks = [ "en-US" ];
@@ -151,6 +151,16 @@
           }
         ];
       };
+    };
+  };
+
+  home = {
+    packages = with pkgs; [ defaultbrowser ];
+
+    activation = {
+      setDefaultApps = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        ${pkgs.defaultbrowser}/bin/defaultbrowser firefox
+      '';
     };
   };
 }
