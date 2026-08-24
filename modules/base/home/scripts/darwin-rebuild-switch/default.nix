@@ -4,6 +4,6 @@
     runtimeEnv = {
       MACHINE = config.machine;
     };
-    text = builtins.readFile ./darwin-rebuild-switch.sh;        
+    text = builtins.readFile ./darwin-rebuild-switch.sh;
   };
 }

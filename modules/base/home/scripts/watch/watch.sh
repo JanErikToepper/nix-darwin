@@ -56,7 +56,7 @@ function main() {
   export QUERY
 
   while true; do
-    fd . "$FILES_TO_WATCH" | entr -c -r bash -c 'handle_changes "$@"' _ "$@"
+    fd . "$FILES_TO_WATCH" | entr -c bash -c 'handle_changes "$@"' _ "$@"
 
     sleep 1
   done

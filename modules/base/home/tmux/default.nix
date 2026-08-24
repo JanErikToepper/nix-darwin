@@ -1,14 +1,14 @@
 { pkgs, ... }: {
   programs.tmux = {
-    enable = true; 
+    enable = true;
     plugins = with pkgs; [
-      tmuxPlugins.vim-tmux-navigator 
-    ]; 
+      tmuxPlugins.vim-tmux-navigator
+    ];
 
     extraConfig = ''
       set -g escape-time 0
-      set-option -g focus-events on
-      set-option -g default-terminal 'screen-256color'
+      set -g focus-events on
+      set -g default-terminal 'screen-256color'
 
       set -g prefix C-s
       set -g status-style fg=white,bg=black
@@ -39,7 +39,7 @@
 
       bind-key x kill-pane
     '';
-  };  
+  };
 
   home.file.".tmux-layouts/.ignore".text = "";
 }
