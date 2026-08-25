@@ -28,6 +28,8 @@ function setup() {
 
   rm -rf "$CHAT_DIR"
 
+  mkdir -p "$JAVA_MENTOR_DIR"
+
   echo "# New chat session" >"$ANSWERS_FILEPATH"
 }
 

@@ -146,8 +146,8 @@
             url = "https://www.rabbitmq.com/docs/";
           }
           {
-            name = "Spring Boot";
-            url = "https://docs.spring.io/spring-boot/index.html";
+            name = "Spring Framework";
+            url = "https://docs.spring.io/spring-framework/reference/index.html";
           }
         ];
       };
