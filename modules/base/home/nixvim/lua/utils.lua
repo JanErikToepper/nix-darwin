@@ -2,22 +2,20 @@ function _G.vim_cmd(command)
 	vim.cmd(string.format("silent! %s", command))
 end
 
-function _G.system_cmd(command)
-	local result_buffer = io.popen(command)
+function _G.system_cmd(command, cb)
+	local cb = cb or function() end
 
-	if not result_buffer then
-		return nil
-	end
+	local command_table = vim.split(command, " ", { trimempty = true })
 
-	local result = result_buffer:read()
+	vim.system(command_table, { text = true }, function(output)
+		local stdout = vim.trim(output.stdout)
 
-	result_buffer:close()
+		local formatted_stdout = stdout ~= "" and stdout or nil
 
-	if not result then
-		return nil
-	end
-
-	return vim.fn.trim(result)
+		vim.schedule(function()
+			cb(formatted_stdout)
+		end)
+	end)
 end
 
 function _G.format_and_write(bufnr)

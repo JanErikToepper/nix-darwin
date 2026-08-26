@@ -39,13 +39,6 @@
             "target%/"
           ];
         };
-        pickers.git_branches = {
-          mappings = {
-            i = {
-              "<cr>".__raw = "require('telescope.actions').git_switch_branch";
-            };
-          };
-        };
       };
     };
 

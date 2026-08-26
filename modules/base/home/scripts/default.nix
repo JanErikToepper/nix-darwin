@@ -1,7 +1,7 @@
 { lib, config, ... }: {
   imports = [
-    ./answer
     ./ask
+    ./chat
     ./darwin-rebuild-switch
     ./hurl-init
     ./pull-nix-darwin-configuration
@@ -17,8 +17,8 @@
   };
 
   config.home.packages = with config.customScripts; [
-    answer
     ask
+    chat
     darwin-rebuild-switch
     hurl-init
     pull-nix-darwin-configuration

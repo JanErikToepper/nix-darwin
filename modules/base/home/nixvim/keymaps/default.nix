@@ -1,7 +1,6 @@
 { ... }:
 let
-  redrawStatusLine = "vim_cmd('redrawstatus!')";
-  stageAll = "system_cmd('git add --all')";
+  redrawStatusline = "vim_cmd('redrawstatus!')";
 in
 {
   programs.nixvim = {
@@ -54,7 +53,7 @@ in
       {
         mode = "n";
         key = "K";
-        action = "<cmd>lua vim.lsp.buf.hover({ border = \"single\" })<cr>";
+        action = "<cmd>lua vim.lsp.buf.hover({ border = 'single' })<cr>";
       }
       {
         mode = "n";
@@ -142,22 +141,22 @@ in
       {
         mode = "n";
         key = "<leader>ga";
-        action = "<cmd>lua ${stageAll}; require('neogit').action('commit', 'amend')()<cr>";
+        action = "<cmd>lua stage(require('neogit').action('commit', 'amend'))cr>";
       }
       {
         mode = "n";
         key = "<leader>gb";
-        action = "<cmd>lua switch_branch()<cr>";
+        action = "<cmd>lua safe_switch_branch()<cr>";
       }
       {
         mode = "n";
         key = "<leader>gB";
-        action = "<cmd>lua system_cmd(\"git switch -\")<cr>";
+        action = "<cmd>lua safe_switch_branch('-')<cr>";
       }
       {
         mode = "n";
         key = "<leader>gc";
-        action = "<cmd>lua ${stageAll}; require('neogit').action('commit', 'commit')()<cr>";
+        action = "<cmd>lua stage(require('neogit').action('commit', 'commit'))<cr>";
       }
       {
         mode = "n";
@@ -187,7 +186,7 @@ in
       {
         mode = "n";
         key = "<leader>gp";
-        action = "<cmd>lua require('neogit').action('pull', 'from_pushremote', { '--rebase' })(); ${redrawStatusLine}<cr>";
+        action = "<cmd>lua require('neogit').action('pull', 'from_pushremote', { '--rebase' })(); ${redrawStatusline}<cr>";
       }
       {
         mode = "n";
@@ -362,12 +361,12 @@ in
       {
         mode = "n";
         key = "<leader>xh";
-        action = "<cmd>lua system_cmd(\"git add --all; git reset --hard\")<cr>";
+        action = "<cmd>lua stage(function() system_cmd('git reset --hard') end)<cr>";
       }
       {
         mode = "n";
         key = "<leader>xs";
-        action = "<cmd>lua system_cmd(\"git reset HEAD~1\")<cr>";
+        action = "<cmd>lua system_cmd('git reset HEAD~1')<cr>";
       }
     ];
   };

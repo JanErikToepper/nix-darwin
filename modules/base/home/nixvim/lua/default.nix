@@ -5,7 +5,8 @@
     ./git.lua
     ./log.lua
     ./lsp.lua
-    ./status_line.lua
+    ./statusline.lua
     ./utils.lua
+    ./init.lua
   ];
 }

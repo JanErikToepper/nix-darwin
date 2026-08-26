@@ -4,12 +4,12 @@
     md-tui
   ];
 
-  config.customScripts.answer = pkgs.writeShellApplication {
-    name = "answer";
+  config.customScripts.chat = pkgs.writeShellApplication {
+    name = "chat";
     runtimeInputs = with pkgs; [
       entr
       md-tui
     ];
-    text = builtins.readFile ./answer.sh;
+    text = builtins.readFile ./chat.sh;
   };
 }

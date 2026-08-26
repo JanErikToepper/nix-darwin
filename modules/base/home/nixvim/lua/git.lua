@@ -1,25 +1,59 @@
-function _G.switch_branch()
-	local is_branch_dirty = system_cmd("git status --porcelain")
+function _G.stage(cb)
+	system_cmd("git add --all", cb)
+end
 
-	if is_branch_dirty then
-		vim.notify("Branch is dirty", "warn", { title = "Neogit" })
+local function switch_branch(branch)
+	system_cmd("git switch " .. branch, function()
+		update_statusline()
+	end)
+end
 
+local function handle_telescope_branch_pick(bufnr)
+	local selection = require("telescope.actions.state").get_selected_entry()
+
+	if not selection then
 		return
 	end
 
-	require("telescope.builtin").git_branches()
+	local branch = selection.value
+
+	require("telescope.actions").close(bufnr)
+
+	switch_branch(branch)
+end
+
+function _G.safe_switch_branch(branch)
+	system_cmd("git status --porcelain", function(is_branch_dirty)
+		if is_branch_dirty then
+			vim.notify("Branch is dirty", "warn", { title = "Neogit" })
+
+			return
+		end
+
+		if branch then
+			switch_branch(branch)
+
+			return
+		end
+
+		require("telescope.builtin").git_branches({
+			attach_mappings = function(_, map)
+				map({ "i", "n" }, "<cr>", handle_telescope_branch_pick)
+
+				return true
+			end,
+		})
+	end)
 end
 
 function _G.continue_rebase()
-	local has_open_conflicts = system_cmd("git grep '>>>>>>>'")
+	system_cmd("git grep '>>>>>>>'", function(has_open_conflicts)
+		if has_open_conflicts then
+			vim.notify("Open merge conflicts", "warn", { title = "Neogit" })
 
-	if has_open_conflicts then
-		vim.notify("Open merge conflicts", "warn", { title = "Neogit" })
+			return
+		end
 
-		return
-	end
-
-	system_cmd("git add --all")
-
-	require("neogit").action("rebase", "continue")()
+		stage(require("neogit").action("rebase", "continue"))
+	end)
 end

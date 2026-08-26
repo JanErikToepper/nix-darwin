@@ -106,6 +106,10 @@
             url = "https://www.gnu.org/software/bash/manual/bash.html";
           }
           {
+            name = "Conventional comments";
+            url = "https://conventionalcomments.org/";
+          }
+          {
             name = "devenv";
             url = "https://devenv.sh/";
           }
