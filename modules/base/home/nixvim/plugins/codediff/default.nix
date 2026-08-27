@@ -1,7 +1,7 @@
 { ... }: {
   programs.nixvim.plugins = {
     codediff = {
-      enable = false;
+      enable = true;
       settings = {
         diff = {
           ignore_trim_whitespaces = true;
@@ -12,10 +12,7 @@
           compute_moves = true;
           compact_context_lines = 5;
         };
-        explorer = {
-          view_mode = "tree";
-          auto_open_on_cursor = true;
-        };
+        explorer.width = 75;
         keymaps = {
           view = {
             next_hunk = "<leader>n";
@@ -31,7 +28,7 @@
       };
     };
 
-    neogit.settings.integrations.codediff = true;
+    neogit.settings.integrations.codediff = false;
 
     telescope.extensions.advanced-git-search.settings.diff_plugin = "codediff";
   };

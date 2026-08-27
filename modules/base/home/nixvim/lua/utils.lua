@@ -18,6 +18,14 @@ function _G.system_cmd(command, cb)
 	end)
 end
 
+function _G.create_autocmd(event, cb, pattern)
+	vim.api.nvim_create_autocmd(event, {
+		callback = cb,
+		pattern = pattern,
+		once = true,
+	})
+end
+
 function _G.format_and_write(bufnr)
 	require("conform").format({
 		bufnr = bufnr,

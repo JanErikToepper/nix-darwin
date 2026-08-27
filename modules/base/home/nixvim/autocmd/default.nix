@@ -22,5 +22,14 @@
       event = "FileType";
       pattern = "qf";
     }
+    {
+      callback.__raw = ''
+        function(args)
+          handle_rebase_feedback(args.status)
+        end
+      '';
+      event = "User";
+      pattern = "NeogitRebase";
+    }
   ];
 }

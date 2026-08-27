@@ -34,7 +34,7 @@ local function calculate_filepath()
 end
 
 function _G.update_statusline()
-	system_cmd("git branch --show-current", function(branch)
+	system_cmd("git rev-parse --abbrev-ref HEAD", function(branch)
 		statusline_state["branch"] = branch
 
 		vim_cmd("redrawstatus!")

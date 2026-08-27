@@ -46,6 +46,35 @@ function _G.safe_switch_branch(branch)
 	end)
 end
 
+function _G.commit()
+	stage(function()
+		create_autocmd({ "User" }, update_statusline, "NeogitCommitComplete")
+
+		require("neogit").action("commit", "commit")()
+	end)
+end
+
+function _G.handle_rebase_feedback(status)
+	log("status: ", status)
+	if status == "ok" then
+		vim.notify("Rebase completed", vim.log.levels.INFO, { title = "Neogit" })
+	end
+
+	if status == "conflict" then
+		vim.notify("Open conflicts", vim.log.levels.WARN, { title = "Neogit" })
+	end
+
+	update_statusline()
+end
+
+function _G.abort_rebase()
+	create_autocmd({ "CmdlineLeave" }, function()
+		vim.defer_fn(update_statusline, 500)
+	end)
+
+	require("neogit").action("rebase", "abort")()
+end
+
 function _G.continue_rebase()
 	system_cmd("git grep '>>>>>>>'", function(has_open_conflicts)
 		if has_open_conflicts then

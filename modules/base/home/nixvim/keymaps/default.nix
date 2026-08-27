@@ -141,7 +141,7 @@ in
       {
         mode = "n";
         key = "<leader>ga";
-        action = "<cmd>lua stage(require('neogit').action('commit', 'amend'))cr>";
+        action = "<cmd>lua stage(require('neogit').action('commit', 'amend'))<cr>";
       }
       {
         mode = "n";
@@ -156,7 +156,7 @@ in
       {
         mode = "n";
         key = "<leader>gc";
-        action = "<cmd>lua stage(require('neogit').action('commit', 'commit'))<cr>";
+        action = "<cmd>lua commit()<cr>";
       }
       {
         mode = "n";
@@ -171,12 +171,12 @@ in
       {
         mode = "n";
         key = "<leader>gh";
-        action = "<cmd>lua require('telescope.builtin').git_bcommits()<cr>";
+        action = "<cmd>AdvancedGitSearch search_log_content_file<cr>";
       }
       {
-        mode = "v";
-        key = "<leader>gh";
-        action = "<cmd>lua require('telescope.builtin').git_bcommits_range()<cr>";
+        mode = "n";
+        key = "<leader>gH";
+        action = "<cmd>AdvancedGitSearch search_log_content<cr>";
       }
       {
         mode = "n";
@@ -291,7 +291,7 @@ in
       {
         mode = "n";
         key = "<leader>ra";
-        action = "<cmd>lua require('neogit').action('rebase', 'abort')()<cr>";
+        action = "<cmd>lua abort_rebase()<cr>";
       }
       {
         mode = "n";
@@ -366,7 +366,7 @@ in
       {
         mode = "n";
         key = "<leader>xs";
-        action = "<cmd>lua system_cmd('git reset HEAD~1')<cr>";
+        action = "<cmd>lua system_cmd('git reset HEAD~1', function() ${redrawStatusline} end)<cr>";
       }
     ];
   };
