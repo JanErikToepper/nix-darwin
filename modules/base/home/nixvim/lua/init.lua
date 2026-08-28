@@ -1,1 +1,1 @@
-update_statusline()
+fetch_git_info()

@@ -1,6 +1,10 @@
 { ... }: {
   programs.nixvim.autoCmd = [
     {
+      command = "lua fetch_filepath()";
+      event = [ "BufEnter" ];
+    }
+    {
       command = "lua require('lint').try_lint()";
       event = [
         "BufEnter"
@@ -25,7 +29,7 @@
     {
       callback.__raw = ''
         function(args)
-          handle_rebase_feedback(args.status)
+          handle_rebase_feedback(args.data.status)
         end
       '';
       event = "User";

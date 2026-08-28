@@ -361,7 +361,7 @@ in
       {
         mode = "n";
         key = "<leader>xh";
-        action = "<cmd>lua stage(function() system_cmd('git reset --hard') end)<cr>";
+        action = "<cmd>lua stage(function() system_cmd('git reset --hard', function() vim_cmd('e') end) end)<cr>";
       }
       {
         mode = "n";

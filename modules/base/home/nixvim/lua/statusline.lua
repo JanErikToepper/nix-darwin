@@ -33,7 +33,11 @@ local function calculate_filepath()
 	end
 end
 
-function _G.update_statusline()
+function _G.fetch_filepath()
+	statusline_state["filepath"] = calculate_filepath()
+end
+
+function _G.fetch_git_info()
 	system_cmd("git rev-parse --abbrev-ref HEAD", function(branch)
 		statusline_state["branch"] = branch
 
@@ -45,11 +49,9 @@ function _G.update_statusline()
 
 		vim_cmd("redrawstatus!")
 	end)
-
-	statusline_state["filepath"] = calculate_filepath()
 end
 
-function _G.get_branch_name()
+function _G.get_git_info()
 	local branch = statusline_state["branch"]
 	local commit = statusline_state["commit"]
 
@@ -64,4 +66,4 @@ function _G.get_filepath()
 	return statusline_state["filepath"]
 end
 
-vim.opt.statusline = "%{%v:lua.get_branch_name()%}  %=  %{%v:lua.get_filepath()%}"
+vim.opt.statusline = "%{%v:lua.get_git_info()%}  %=  %{%v:lua.get_filepath()%}"
