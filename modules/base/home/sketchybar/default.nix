@@ -24,7 +24,6 @@ in
 
   programs.sketchybar = {
     enable = true;
-    service.errorLogFile = "/Users/janeriktoepper/error.log";
     config = ''
       source "${sketchybarPlugins}/colors.sh";
 

@@ -158,7 +158,7 @@ in
       ];
 
       after-startup-command = [
-        "exec-and-forget sketchybar"
+        "exec-and-forget ${pkgs.sketchybar}/bin/sketchybar"
         "exec-and-forget open -b ${firefox}"
         "exec-and-forget open -b ${alacritty}"
         "exec-and-forget open -b ${docker}"

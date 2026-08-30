@@ -1,9 +1,11 @@
-{ config, ... }: let
+{ config, ... }:
+let
   customConfig = {
     user = "janeriktoepper";
     machine = "work";
   };
-in {
+in
+{
   imports = [ ./configuration ];
 
   config = {
